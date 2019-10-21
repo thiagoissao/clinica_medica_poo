@@ -1,4 +1,7 @@
-package models;
+package services;
+
+import models.Doctor;
+import models.Patient;
 
 public class Appointment {
     

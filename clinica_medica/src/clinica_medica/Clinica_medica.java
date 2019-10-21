@@ -3,7 +3,7 @@ package clinica_medica;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Appointment;
+import services.Appointment;
 import models.Doctor;
 import models.Patient;
 import models.Secretary;
