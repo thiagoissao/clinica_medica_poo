@@ -1,9 +1,31 @@
 package clinica_medica;
 
+import java.util.List;
+import java.util.ArrayList;
+import services.Appointment;
+import services.Crud;
+import models.Doctor;
+import models.Patient;
+import models.Secretary;
+
 public class ClinicaMedica extends javax.swing.JFrame {
+    
+    //TESTES
+    private Doctor doctor = new Doctor();
+    private Secretary secretary;
+    private List<Appointment> appointments = new ArrayList<Appointment>();
+    private List<Patient> patients = new ArrayList<Patient>();
+    private Crud crud = new Crud();
 
     public ClinicaMedica() {
-        initComponents();
+        System.out.println(appointments);
+        Patient patient = new Patient();
+        Appointment appointment = new Appointment(1, "22/12/1999", doctor, patient, true);
+        System.out.println(crud.addAppointment(appointment, appointments));
+        System.out.println(crud.getAppointment(2, appointments));
+        
+        
+        //initComponents();
     }
 
 

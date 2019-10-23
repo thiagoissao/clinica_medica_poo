@@ -5,14 +5,15 @@ import models.Patient;
 
 public class Appointment {
     
-    private static int appointmentID;
+    private int appointmentId;
     private String date;
     private Doctor doctor;
     private Patient pacient;
     private boolean isNormalAppointment; //if !isNormalAppointment then is "Retorno"
     private boolean isActive = true; //if !isActive then appointment was cancelled
 
-    public Appointment(String date, Doctor doctor, Patient pacient, boolean isNormalAppointment) {
+    public Appointment(int appointmentId, String date, Doctor doctor, Patient pacient, boolean isNormalAppointment) {
+        this.appointmentId = appointmentId;
         this.date = date;
         this.doctor = doctor;
         this.pacient = pacient;
@@ -59,4 +60,11 @@ public class Appointment {
         this.isActive = isActive;
     }
     
+    public int getAppointmentId(){
+        return this.appointmentId;
+    }
+    
+    public void setAppointmentId(int a){
+        this.appointmentId = a;
+    }
 }
