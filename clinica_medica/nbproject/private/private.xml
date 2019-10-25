@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/thiago/Desktop/uem/POO/clinica_medica_poo/clinica_medica/src/services/Appointment.java</file>
-            <file>file:/home/thiago/Desktop/uem/POO/clinica_medica_poo/clinica_medica/src/clinica_medica/ClinicaMedica.java</file>
+            <file>file:/home/thiago/Desktop/uem/POO/clinica_medica_poo/clinica_medica/src/models/PessoaClinica.java</file>
+            <file>file:/home/thiago/Desktop/uem/POO/clinica_medica_poo/clinica_medica/src/services/Message.java</file>
+            <file>file:/home/thiago/Desktop/uem/POO/clinica_medica_poo/clinica_medica/src/utils/Cargo.java</file>
             <file>file:/home/thiago/Desktop/uem/POO/clinica_medica_poo/clinica_medica/src/models/Doctor.java</file>
-            <file>file:/home/thiago/Desktop/uem/POO/clinica_medica_poo/clinica_medica/src/models/Patient.java</file>
             <file>file:/home/thiago/Desktop/uem/POO/clinica_medica_poo/clinica_medica/src/services/Crud.java</file>
             <file>file:/home/thiago/Desktop/uem/POO/clinica_medica_poo/clinica_medica/src/models/Secretary.java</file>
         </group>

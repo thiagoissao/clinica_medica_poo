@@ -1,5 +1,10 @@
 package models;
 
-public class Doctor {
+import utils.Cargo;
+
+public class Doctor extends PessoaClinica{
+    public Doctor(String nome, int cpf, String telefone){
+        super(nome, cpf, telefone, Cargo.setIsDoctor());
+    }
     
 }

@@ -3,7 +3,7 @@ package services;
 import java.util.List;
 import models.Patient;
 
-public class Crud {
+public final class Crud {
     
     //AGENDAMENTOS
     public static List<Appointment> removeAppointment(int appointmentId, List<Appointment> appointments){ 

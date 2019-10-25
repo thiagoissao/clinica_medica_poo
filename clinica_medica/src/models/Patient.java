@@ -12,6 +12,8 @@ public class Patient {
     private String dateBirth;
     private String address;
     private boolean isParticular;
+    
+    //Only Doctor can set values here
     private boolean isSmoker;
     private boolean isAlcoholConsumer;
     private boolean isDiabetesCarrier;
