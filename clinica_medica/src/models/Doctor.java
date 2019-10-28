@@ -1,10 +1,83 @@
 package models;
 
 import utils.Cargo;
+import java.util.List;
+import services.Crud;
+import utils.AddictionalPatientData;
+import utils.PatientMedicalRecord;
 
 public class Doctor extends PessoaClinica{
     public Doctor(String nome, int cpf, String telefone){
-        super(nome, cpf, telefone, Cargo.setIsDoctor());
+        super(nome, cpf, telefone, Cargo.getDoctorRef());
     }
     
+    public List<Patient> addAddictionalPatientData(int cpf, AddictionalPatientData data , List<Patient> patients){
+        Patient patient = Crud.getPatient(cpf, patients);
+        
+        patient.setIsSmoker(data.isSmoker(), this);
+        patient.setIsAlcoholConsumer(data.isAlcoholConsumer(), this);
+        patient.setIsDiabetesCarrier(data.isDiabetesCarrier(), this);
+        patient.setIsHeartDiseaseCarrier(data.isHeartDiseaseCarrier(), this);
+        patient.setSurgeries(data.getSurgeries(), this);
+        patient.setAllergies(data.getAllergies(), this);
+
+        return Crud.updatePatient(cpf, patient, patients);
+     
+    }
+    
+    public List<Patient> updateAddictionalPatientData(int cpf, AddictionalPatientData data , List<Patient> patients){
+        Patient patient = Crud.getPatient(cpf, patients);
+        
+        patient.setIsSmoker(data.isSmoker(), this);
+        patient.setIsAlcoholConsumer(data.isAlcoholConsumer(), this);
+        patient.setIsDiabetesCarrier(data.isDiabetesCarrier(), this);
+        patient.setIsHeartDiseaseCarrier(data.isHeartDiseaseCarrier(), this);
+        patient.setSurgeries(data.getSurgeries(), this);
+        patient.setAllergies(data.getAllergies(), this);
+
+        return Crud.updatePatient(cpf, patient, patients);
+    }
+    
+    public List<Patient> removeAllAddictionalPatientData(int cpf, List<Patient> patients){
+        Patient patient = Crud.getPatient(cpf, patients);
+
+        patient.setIsSmoker(false, this);
+        patient.setIsAlcoholConsumer(false, this);
+        patient.setIsDiabetesCarrier(false, this);
+        patient.setIsHeartDiseaseCarrier(false, this);
+        patient.setSurgeries(null, this);
+        patient.setAllergies(null, this);
+
+        return Crud.updatePatient(cpf, patient, patients);
+    }
+    
+    public List<Patient> addPatientMedicalRecord(int cpf, PatientMedicalRecord data, List<Patient> patients){
+        Patient patient = Crud.getPatient(cpf, patients);
+        
+        patient.setSymptom(data.getSymptom(), this);
+        patient.setTreatmentDescription(data.getTreatmentDescription(), this);
+        patient.setDiseaseDiagnosis(data.getDiseaseDiagnosis(), this);
+    
+        return Crud.updatePatient(cpf, patient, patients);
+    }
+    
+    public List<Patient> updatePatientMedicalRecord(int cpf, PatientMedicalRecord data, List<Patient> patients){
+        Patient patient = Crud.getPatient(cpf, patients);
+        
+        patient.setSymptom(data.getSymptom(), this);
+        patient.setTreatmentDescription(data.getTreatmentDescription(), this);
+        patient.setDiseaseDiagnosis(data.getDiseaseDiagnosis(), this);
+    
+        return Crud.updatePatient(cpf, patient, patients);
+    }
+    
+    public List<Patient> removePatientMedicalRecord(int cpf, PatientMedicalRecord data, List<Patient> patients){
+        Patient patient = Crud.getPatient(cpf, patients);
+        
+        patient.setSymptom(null , this);
+        patient.setTreatmentDescription(null, this);
+        patient.setDiseaseDiagnosis(null, this);
+    
+        return Crud.updatePatient(cpf, patient, patients);
+    }
 }

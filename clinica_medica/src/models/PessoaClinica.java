@@ -1,7 +1,5 @@
 package models;
 
-import utils.Cargo;
-
 public class PessoaClinica {
 
     private String nome;

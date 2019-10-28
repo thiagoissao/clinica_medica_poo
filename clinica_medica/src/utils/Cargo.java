@@ -1,22 +1,14 @@
 package utils;
 
 public class Cargo {
-    private final static int DOCTOR = 1;
-    private final static int SECRETARY = 2; 
+    private final static int DOCTOR = 3421311;
+    private final static int SECRETARY = 8348429; 
 
-    public static int setIsDoctor(){
+    public static int getDoctorRef(){
         return DOCTOR;
     }
     
-    public static int setIsSecretary(){
+    public static int getSecretaryRef(){
         return SECRETARY;
-    }
-    
-    public static boolean isDoctor(int ref){
-        return ref == DOCTOR;
-    }
-    
-    public static boolean isSecretary(int ref){
-        return ref == SECRETARY;
     }
 }

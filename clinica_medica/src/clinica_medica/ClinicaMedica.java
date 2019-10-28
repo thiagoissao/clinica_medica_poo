@@ -11,7 +11,7 @@ import models.Secretary;
 public class ClinicaMedica extends javax.swing.JFrame {
     
     //TESTES
-    private Doctor doctor = new Doctor();
+    private Doctor doctor = new Doctor("Doutor", 123, "fsda");
     private Secretary secretary;
     private List<Appointment> appointments = new ArrayList<Appointment>();
     private List<Patient> patients = new ArrayList<Patient>();

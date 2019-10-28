@@ -5,11 +5,9 @@ import services.Crud;
 import java.util.List;
 import utils.Cargo;
 
-
-public class Secretary extends PessoaClinica{
-    
+public class Secretary extends PessoaClinica{ 
     public Secretary(String nome, int cpf, String telefone){
-        super(nome, cpf, telefone, Cargo.setIsSecretary());
+        super(nome, cpf, telefone, Cargo.getSecretaryRef());
     }
     
     public List<Patient> addPatient(Patient patient, List<Patient> patients){

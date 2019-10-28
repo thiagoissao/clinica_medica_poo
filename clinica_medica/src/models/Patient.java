@@ -1,7 +1,7 @@
 package models;
 
 import java.util.List;
-
+import utils.Cargo;
 public class Patient {
     
     private String name;
@@ -16,10 +16,16 @@ public class Patient {
     //Only Doctor can set values here
     private boolean isSmoker;
     private boolean isAlcoholConsumer;
+    private boolean isCholesterolCarrier;
     private boolean isDiabetesCarrier;
     private boolean isHeartDiseaseCarrier;
     private List<String> surgeries;
     private List<String> allergies;
+    
+    //Prontuários do sistema
+    private List<String> symptom;
+    private List<String> diseaseDiagnosis;
+    private String treatmentDescription;
     
     
     public String getName() {
@@ -90,15 +96,17 @@ public class Patient {
         return isSmoker;
     }
 
-    public void setIsSmoker(boolean isSmoker) {
-        this.isSmoker = isSmoker;
+    public void setIsSmoker(boolean isSmoker, Doctor doctor) {
+        if(doctor.getCargo() == Cargo.getDoctorRef()){
+            this.isSmoker = isSmoker;    
+        }
     }
 
     public boolean isAlcoholConsumer() {
         return isAlcoholConsumer;
     }
 
-    public void setIsAlcoholConsumer(boolean isAlcoholConsumer) {
+    public void setIsAlcoholConsumer(boolean isAlcoholConsumer, Doctor doctor) {
         this.isAlcoholConsumer = isAlcoholConsumer;
     }
 
@@ -106,7 +114,7 @@ public class Patient {
         return isDiabetesCarrier;
     }
 
-    public void setIsDiabetesCarrier(boolean isDiabetesCarrier) {
+    public void setIsDiabetesCarrier(boolean isDiabetesCarrier, Doctor doctor) {
         this.isDiabetesCarrier = isDiabetesCarrier;
     }
 
@@ -114,7 +122,7 @@ public class Patient {
         return isHeartDiseaseCarrier;
     }
 
-    public void setIsHeartDiseaseCarrier(boolean isHeartDiseaseCarrier) {
+    public void setIsHeartDiseaseCarrier(boolean isHeartDiseaseCarrier, Doctor doctor) {
         this.isHeartDiseaseCarrier = isHeartDiseaseCarrier;
     }
 
@@ -122,7 +130,7 @@ public class Patient {
         return surgeries;
     }
 
-    public void setSurgeries(List<String> surgeries) {
+    public void setSurgeries(List<String> surgeries, Doctor doctor) {
         this.surgeries = surgeries;
     }
 
@@ -130,8 +138,40 @@ public class Patient {
         return allergies;
     }
 
-    public void setAllergies(List<String> allergies) {
+    public void setAllergies(List<String> allergies, Doctor doctor) {
         this.allergies = allergies;
+    }
+
+    public boolean isIsCholesterolCarrier() {
+        return isCholesterolCarrier;
+    }
+
+    public void setIsCholesterolCarrier(boolean isCholesterolCarrier, Doctor doctor) {
+        this.isCholesterolCarrier = isCholesterolCarrier;
+    }
+
+    public List<String> getSymptom() {
+        return symptom;
+    }
+
+    public void setSymptom(List<String> symptom, Doctor doctor) {
+        this.symptom = symptom;
+    }
+
+    public List<String> getDiseaseDiagnosis() {
+        return diseaseDiagnosis;
+    }
+
+    public void setDiseaseDiagnosis(List<String> diseaseDiagnosis, Doctor doctor) {
+        this.diseaseDiagnosis = diseaseDiagnosis;
+    }
+
+    public String getTreatmentDescription() {
+        return treatmentDescription;
+    }
+
+    public void setTreatmentDescription(String treatmentDescription, Doctor doctor) {
+        this.treatmentDescription = treatmentDescription;
     }
 
     
