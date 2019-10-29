@@ -8,7 +8,7 @@ public class Patient {
     private boolean isMale; // if !isMale then is "Female type"
     private String phoneNumber;
     private String email;
-    private int cpf;
+    private String cpf;
     private String dateBirth;
     private String address;
     private boolean isParticular;
@@ -60,11 +60,11 @@ public class Patient {
         this.email = email;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

@@ -11,7 +11,7 @@ public class Doctor extends PessoaClinica{
         super(nome, cpf, telefone, Cargo.getDoctorRef());
     }
     
-    public List<Patient> addAddictionalPatientData(int cpf, AddictionalPatientData data , List<Patient> patients){
+    public List<Patient> addAddictionalPatientData(String cpf, AddictionalPatientData data , List<Patient> patients){
         Patient patient = Crud.getPatient(cpf, patients);
         
         patient.setIsSmoker(data.isSmoker(), this);
@@ -25,7 +25,7 @@ public class Doctor extends PessoaClinica{
      
     }
     
-    public List<Patient> updateAddictionalPatientData(int cpf, AddictionalPatientData data , List<Patient> patients){
+    public List<Patient> updateAddictionalPatientData(String cpf, AddictionalPatientData data , List<Patient> patients){
         Patient patient = Crud.getPatient(cpf, patients);
         
         patient.setIsSmoker(data.isSmoker(), this);
@@ -38,7 +38,7 @@ public class Doctor extends PessoaClinica{
         return Crud.updatePatient(cpf, patient, patients);
     }
     
-    public List<Patient> removeAllAddictionalPatientData(int cpf, List<Patient> patients){
+    public List<Patient> removeAllAddictionalPatientData(String cpf, List<Patient> patients){
         Patient patient = Crud.getPatient(cpf, patients);
 
         patient.setIsSmoker(false, this);
@@ -51,7 +51,7 @@ public class Doctor extends PessoaClinica{
         return Crud.updatePatient(cpf, patient, patients);
     }
     
-    public List<Patient> addPatientMedicalRecord(int cpf, PatientMedicalRecord data, List<Patient> patients){
+    public List<Patient> addPatientMedicalRecord(String cpf, PatientMedicalRecord data, List<Patient> patients){
         Patient patient = Crud.getPatient(cpf, patients);
         
         patient.setSymptom(data.getSymptom(), this);
@@ -61,7 +61,7 @@ public class Doctor extends PessoaClinica{
         return Crud.updatePatient(cpf, patient, patients);
     }
     
-    public List<Patient> updatePatientMedicalRecord(int cpf, PatientMedicalRecord data, List<Patient> patients){
+    public List<Patient> updatePatientMedicalRecord(String cpf, PatientMedicalRecord data, List<Patient> patients){
         Patient patient = Crud.getPatient(cpf, patients);
         
         patient.setSymptom(data.getSymptom(), this);
@@ -71,7 +71,7 @@ public class Doctor extends PessoaClinica{
         return Crud.updatePatient(cpf, patient, patients);
     }
     
-    public List<Patient> removePatientMedicalRecord(int cpf, PatientMedicalRecord data, List<Patient> patients){
+    public List<Patient> removePatientMedicalRecord(String cpf, PatientMedicalRecord data, List<Patient> patients){
         Patient patient = Crud.getPatient(cpf, patients);
         
         patient.setSymptom(null , this);

@@ -14,11 +14,11 @@ public class Secretary extends PessoaClinica{
         return Crud.addPatient(patient, patients);
     }
     
-    public List<Patient> updatePatient(int cpf, Patient patient, List<Patient> patients){
+    public List<Patient> updatePatient(String cpf, Patient patient, List<Patient> patients){
         return Crud.updatePatient(cpf, patient, patients);
     }
     
-    public List<Patient> removePatient(int cpf, List<Patient> patients){
+    public List<Patient> removePatient(String cpf, List<Patient> patients){
         return Crud.removePatient(cpf, patients);
     }
     

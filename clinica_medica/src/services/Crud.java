@@ -41,11 +41,11 @@ public final class Crud {
     
     
     //PACIENTES
-    public static List<Patient> removePatient(int cpf, List<Patient> patients){
+    public static List<Patient> removePatient(String cpf, List<Patient> patients){
         List<Patient> pacientes = patients;
         int index = 0;
         for(Patient p: patients){
-            if(p.getCpf() == cpf){
+            if(p.getCpf().equals(cpf)){
                 pacientes.remove(index);
                 return pacientes;
             }
@@ -60,10 +60,10 @@ public final class Crud {
         return p;
     }
     
-    public static List<Patient> updatePatient(int cpf, Patient patient, List<Patient> patients){
+    public static List<Patient> updatePatient(String cpf, Patient patient, List<Patient> patients){
         List<Patient> list = patients;
         for(int i=0; i<list.size(); i++){
-            if(list.get(i).getCpf() == cpf){
+            if(list.get(i).getCpf().equals(cpf)){
                 list.remove(i);
                 list.add(i, patient);
                 return list;
@@ -72,9 +72,9 @@ public final class Crud {
         return null;
     }
     
-    public static Patient getPatient(int cpf, List<Patient> patients){
+    public static Patient getPatient(String cpf, List<Patient> patients){
         for(Patient p: patients){
-            if(p.getCpf() == cpf){
+            if(p.getCpf().equals(cpf)){
                 return p;
             }
         }
