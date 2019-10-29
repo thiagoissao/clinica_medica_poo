@@ -7,7 +7,7 @@ import utils.AddictionalPatientData;
 import utils.PatientMedicalRecord;
 
 public class Doctor extends PessoaClinica{
-    public Doctor(String nome, int cpf, String telefone){
+    public Doctor(String nome, String cpf, String telefone){
         super(nome, cpf, telefone, Cargo.getDoctorRef());
     }
     

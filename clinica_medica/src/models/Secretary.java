@@ -6,7 +6,7 @@ import java.util.List;
 import utils.Cargo;
 
 public class Secretary extends PessoaClinica{ 
-    public Secretary(String nome, int cpf, String telefone){
+    public Secretary(String nome, String cpf, String telefone){
         super(nome, cpf, telefone, Cargo.getSecretaryRef());
     }
     

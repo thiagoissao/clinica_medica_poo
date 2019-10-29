@@ -7,17 +7,16 @@ public class Appointment {
     
     private int appointmentId;
     private String date;
-    private Doctor doctor;
-    private Patient pacient;
+    private String hour;
+    private String doctorCpf;
+    private String patientCpf;
+    private String patientName;
     private boolean isNormalAppointment; //if !isNormalAppointment then is "Retorno"
     private boolean isActive = true; //if !isActive then appointment was cancelled
 
-    public Appointment(int appointmentId, String date, Doctor doctor, Patient pacient, boolean isNormalAppointment) {
+    public Appointment(int appointmentId, String doctorCpf) {
         this.appointmentId = appointmentId;
-        this.date = date;
-        this.doctor = doctor;
-        this.pacient = pacient;
-        this.isNormalAppointment = isNormalAppointment;
+        this.doctorCpf = doctorCpf;
     }
 
     public String getDate() {
@@ -27,21 +26,29 @@ public class Appointment {
     public void setDate(String date) {
         this.date = date;
     }
-
-    public Doctor getDoctor() {
-        return doctor;
+    
+    public String getHour(){
+        return this.hour;
+    }
+    
+    public void setHour(String hour){
+        this.hour = hour;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
+    public String getDoctorCpf() {
+        return this.doctorCpf;
     }
 
-    public Patient getPacient() {
-        return pacient;
+    public void setDoctorCpf(String doctorCpf) {
+        this.doctorCpf = doctorCpf;
     }
 
-    public void setPacient(Patient pacient) {
-        this.pacient = pacient;
+    public String getPatientCpf() {
+        return this.patientCpf;
+    }
+
+    public void setPatientCpf(String patient) {
+        this.patientCpf = patientCpf;
     }
 
     public boolean isNormalAppointment() {
@@ -67,4 +74,13 @@ public class Appointment {
     public void setAppointmentId(int a){
         this.appointmentId = a;
     }
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+    
 }

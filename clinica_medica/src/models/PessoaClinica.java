@@ -3,12 +3,12 @@ package models;
 public class PessoaClinica {
 
     private String nome;
-    private int cpf;
+    private String cpf;
     private String telefone;
     private int cargo;
 
     
-    public PessoaClinica(String nome, int cpf, String telefone, int cargo) {
+    public PessoaClinica(String nome, String cpf, String telefone, int cargo) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
@@ -23,11 +23,11 @@ public class PessoaClinica {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
