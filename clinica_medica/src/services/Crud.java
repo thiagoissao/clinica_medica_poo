@@ -6,10 +6,17 @@ import models.Patient;
 public final class Crud {
     
     //AGENDAMENTOS
-    public static List<Appointment> removeAppointment(int appointmentId, List<Appointment> appointments){ 
+    public static List<Appointment> removeAppointment(String patientCpf, List<Appointment> appointments){ 
         List<Appointment> list = appointments;
-        list.remove(appointmentId);
-        return list;
+        int index = 0;
+        for(Appointment a: appointments){
+            if(a.getPatientCpf().equals(patientCpf)){
+                list.remove(index);
+                return list;
+            }
+            index++;
+        }
+        return null;
     }
     
     public static List<Appointment> addAppointment(Appointment a, List<Appointment> apps){

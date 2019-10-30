@@ -1,8 +1,5 @@
 package services;
 
-import models.Doctor;
-import models.Patient;
-
 public class Appointment {
     
     private int appointmentId;
@@ -10,7 +7,6 @@ public class Appointment {
     private String hour;
     private String doctorCpf;
     private String patientCpf;
-    private String patientName;
     private boolean isNormalAppointment; //if !isNormalAppointment then is "Retorno"
     private boolean isActive = true; //if !isActive then appointment was cancelled
 
@@ -47,7 +43,7 @@ public class Appointment {
         return this.patientCpf;
     }
 
-    public void setPatientCpf(String patient) {
+    public void setPatientCpf(String patientCpf) {
         this.patientCpf = patientCpf;
     }
 
@@ -75,12 +71,4 @@ public class Appointment {
         this.appointmentId = a;
     }
 
-    public String getPatientName() {
-        return patientName;
-    }
-
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
-    
 }
