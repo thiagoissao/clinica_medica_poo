@@ -32,6 +32,16 @@ public class Secretary extends PessoaClinica{
                 System.out.println("Email:" +a.getEmail());
                 System.out.println("Telefone:" +a.getPhoneNumber());
                 System.out.println("Adress:" + a.getAddress());
+                if(a.isMale()){
+                    System.out.println("Gênero: Masculino");
+                }else{
+                    System.out.println("Gênero: Feminino");
+                }
+                if(a.isParticular()){
+                    System.out.println("Plano: Particular");
+                }else{
+                    System.out.println("Plano: Plano de Saúde");
+                }
             }
         }else{
             System.out.println();
@@ -59,7 +69,12 @@ public class Secretary extends PessoaClinica{
                 System.out.println("Hora:" + a.getHour());
                 System.out.println("CPF Médico:" + a.getDoctorCpf());
                 System.out.println("CPF Paciente:" +a.getPatientCpf());
-                System.out.println("Consulta Normal:" + a.isNormalAppointment());
+                if(a.isNormalAppointment()){
+                    System.out.println("Consulta: Normal");
+                }else{
+                    System.out.println("Consulta: Retorno");
+                }
+                
             }
         }else{
             System.out.println();
