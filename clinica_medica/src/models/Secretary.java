@@ -43,8 +43,8 @@ public class Secretary extends PessoaClinica{
         return Crud.addAppointment(a, appointments);
     }
     
-    public List<Appointment> updateAppointment(int appId, Appointment a, List<Appointment> appointments){
-        return Crud.updateAppointment(appId, a, appointments);
+    public List<Appointment> updateAppointment(String patientCpf, Appointment a, List<Appointment> appointments){
+        return Crud.updateAppointment(patientCpf, a, appointments);
     }
     
     public List<Appointment> removeAppointment(String patientCpf, List<Appointment> appointments){        

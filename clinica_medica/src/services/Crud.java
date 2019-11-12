@@ -25,10 +25,10 @@ public final class Crud {
         return list;
     }
     
-    public static List<Appointment> updateAppointment(int appointmentId , Appointment appointment, List<Appointment> appointments){
+    public static List<Appointment> updateAppointment(String patientCpf , Appointment appointment, List<Appointment> appointments){
         List<Appointment> list = appointments;
         for(int i=0; i<appointments.size(); i++){
-            if(list.get(i).getAppointmentId() == appointmentId){
+            if(list.get(i).getPatientCpf().equals(patientCpf)){
                 list.remove(i);
                 list.add(i, appointment);
                 return list;
@@ -37,9 +37,9 @@ public final class Crud {
         return null;
     }
     
-    public static Appointment getAppointment(int appointmentId, List<Appointment> appointments){
+    public static Appointment getAppointment(String patientCpf, List<Appointment> appointments){
         for(Appointment a: appointments){
-            if(a.getAppointmentId() == appointmentId){
+            if(a.getPatientCpf().equals(patientCpf)){
                 return a;
             }
         }

@@ -2,7 +2,6 @@ package services;
 
 public class Appointment {
     
-    private int appointmentId;
     private String date;
     private String hour;
     private String doctorCpf;
@@ -10,8 +9,7 @@ public class Appointment {
     private boolean isNormalAppointment; //if !isNormalAppointment then is "Retorno"
     private boolean isActive = true; //if !isActive then appointment was cancelled
 
-    public Appointment(int appointmentId, String doctorCpf) {
-        this.appointmentId = appointmentId;
+    public Appointment(String doctorCpf) {
         this.doctorCpf = doctorCpf;
     }
 
@@ -62,13 +60,4 @@ public class Appointment {
     public void setIsActive(boolean isActive){
         this.isActive = isActive;
     }
-    
-    public int getAppointmentId(){
-        return this.appointmentId;
-    }
-    
-    public void setAppointmentId(int a){
-        this.appointmentId = a;
-    }
-
 }

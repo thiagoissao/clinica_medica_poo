@@ -8,27 +8,32 @@ import models.Patient;
 import models.Secretary;
 
 public class SecretaryScreen extends javax.swing.JFrame {
-    
-    private int appointmentId = 1;
-    
+        
     //TESTES
     private final Doctor doctor;
     private final Secretary secretary;
-    private final List<Appointment> appointments = new ArrayList<Appointment>();
-    private final List<Patient> patients = new ArrayList<Patient>();
+    private final List<Appointment> appointments = new ArrayList<>();
+    private final List<Patient> patients = new ArrayList<>();
 
     public SecretaryScreen() {
         this.doctor = new Doctor("Neymar Júnior", "12345678", "(44)99999-9999");
         this.secretary = new Secretary("Pai do Neymar", "987654321", "(44)11111-1111");
         
+        setupComponents();
+    }
+    
+    private void setupComponents(){
         initComponents();
         this.radioBtnIsAdding.setSelected(true);
         this.txtCpfInfo.setText("");
+        this.txtCpfInfo2.setText("");
         this.radioBtnIsUpdating.setSelected(false);
         this.radioBtnIsMale.setSelected(true);
         this.radioBtnIsFemale.setSelected(false);
         this.radioBtnIsParticular.setSelected(true);
         this.radioBtnIsNotParticular.setSelected(false);
+        this.radioBtnAddAppointment.setSelected(true);
+        this.radioBtnIsNormalAppointment.setSelected(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -73,10 +78,10 @@ public class SecretaryScreen extends javax.swing.JFrame {
         txtAppointmentData = new javax.swing.JTextField();
         txtPatientAppointmentCpf = new javax.swing.JTextField();
         txtDoctorAppointmentCpf = new javax.swing.JTextField();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
+        radioBtnIsNormalAppointment = new javax.swing.JRadioButton();
+        radioBtnIsNotNormalAppointment = new javax.swing.JRadioButton();
+        radioBtnAddAppointment = new javax.swing.JRadioButton();
+        radioBtnUpdateAppointment = new javax.swing.JRadioButton();
         btnRemoveAppointment = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         txtPatientRemoveAppointmentCpf = new javax.swing.JTextField();
@@ -85,6 +90,7 @@ public class SecretaryScreen extends javax.swing.JFrame {
         btnShowAllAppoints = new javax.swing.JButton();
         btnShowPatient = new javax.swing.JButton();
         txtCpfInfo = new javax.swing.JLabel();
+        txtCpfInfo2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.white);
@@ -264,13 +270,33 @@ public class SecretaryScreen extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton7.setText("Normal");
+        radioBtnIsNormalAppointment.setText("Normal");
+        radioBtnIsNormalAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBtnIsNormalAppointmentActionPerformed(evt);
+            }
+        });
 
-        jRadioButton8.setText("Retorno");
+        radioBtnIsNotNormalAppointment.setText("Retorno");
+        radioBtnIsNotNormalAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBtnIsNotNormalAppointmentActionPerformed(evt);
+            }
+        });
 
-        jRadioButton9.setText("Adicionar");
+        radioBtnAddAppointment.setText("Adicionar");
+        radioBtnAddAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBtnAddAppointmentActionPerformed(evt);
+            }
+        });
 
-        jRadioButton10.setText("Atualizar");
+        radioBtnUpdateAppointment.setText("Atualizar");
+        radioBtnUpdateAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBtnUpdateAppointmentActionPerformed(evt);
+            }
+        });
 
         btnRemoveAppointment.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         btnRemoveAppointment.setForeground(new java.awt.Color(226, 66, 66));
@@ -322,6 +348,10 @@ public class SecretaryScreen extends javax.swing.JFrame {
         txtCpfInfo.setForeground(new java.awt.Color(182, 147, 20));
         txtCpfInfo.setText("Atualização é feita pelo cpf");
 
+        txtCpfInfo2.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtCpfInfo2.setForeground(new java.awt.Color(182, 147, 20));
+        txtCpfInfo2.setText("Atualização é feita pelo cpf");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -334,11 +364,11 @@ public class SecretaryScreen extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton9))
+                                .addComponent(radioBtnAddAppointment))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton7)))
+                                .addComponent(radioBtnIsNormalAppointment)))
                         .addGap(0, 569, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,18 +409,20 @@ public class SecretaryScreen extends javax.swing.JFrame {
                                 .addComponent(txtPatientCPF)))
                         .addGap(73, 73, 73))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadioButton8)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel14)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtAppointmentData, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtPatientAppointmentCpf)))
-                            .addComponent(jRadioButton10))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(radioBtnIsNotNormalAppointment)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel14)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtAppointmentData, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtPatientAppointmentCpf)))
+                                .addComponent(radioBtnUpdateAppointment))
+                            .addComponent(txtCpfInfo2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnShowAllAppoints)
@@ -513,11 +545,11 @@ public class SecretaryScreen extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(txtPatientCPFRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRemovePatient))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jRadioButton9)
-                    .addComponent(jRadioButton10)
+                    .addComponent(radioBtnAddAppointment)
+                    .addComponent(radioBtnUpdateAppointment)
                     .addComponent(btnShowAllAppoints))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,7 +557,9 @@ public class SecretaryScreen extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(txtAppointmentData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(4, 4, 4)
+                        .addComponent(txtCpfInfo2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(txtPatientAppointmentCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -536,10 +570,10 @@ public class SecretaryScreen extends javax.swing.JFrame {
                         .addComponent(txtHourAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton8)
+                    .addComponent(radioBtnIsNotNormalAppointment)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel17)
-                        .addComponent(jRadioButton7)))
+                        .addComponent(radioBtnIsNormalAppointment)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddAppointment)
                 .addGap(18, 18, 18)
@@ -556,7 +590,8 @@ public class SecretaryScreen extends javax.swing.JFrame {
 
     private void btnGoToDoctorScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToDoctorScreenActionPerformed
         DoctorScreen frame = new DoctorScreen();
-        frame.setVisible(true);        
+        frame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnGoToDoctorScreenActionPerformed
 
     private void txtPatientDateBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientDateBirthActionPerformed
@@ -612,7 +647,6 @@ public class SecretaryScreen extends javax.swing.JFrame {
             secretary.updatePatient(this.txtPatientCPF.getText(), patient, patients);
         }
         
-        
         this.txtPatientName.setText("");
         this.txtPatientCPF.setText("");
         this.txtPatientDateBirth.setText("");
@@ -629,14 +663,19 @@ public class SecretaryScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemovePatientActionPerformed
 
     private void btnAddAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAppointmentActionPerformed
-        Appointment app = new Appointment(appointmentId, doctor.getCpf());
-        this.appointmentId++;
+        Appointment app = new Appointment(doctor.getCpf());
         app.setDate(this.txtAppointmentData.getText());
         app.setHour(this.txtHourAppointment.getText());
         app.setDoctorCpf(this.txtDoctorAppointmentCpf.getText());
         app.setPatientCpf(this.txtPatientAppointmentCpf.getText());
+        app.setIsNormalAppointment(this.radioBtnIsNormalAppointment.isSelected());
      
-        secretary.addAppointment(app, appointments);
+        if(this.radioBtnAddAppointment.isSelected()){
+            secretary.addAppointment(app, appointments);    
+        }else{
+            secretary.updateAppointment(this.txtPatientAppointmentCpf.getText(), app, appointments);
+        }
+        
         
         this.txtAppointmentData.setText("");
         this.txtHourAppointment.setText("");
@@ -689,6 +728,30 @@ public class SecretaryScreen extends javax.swing.JFrame {
         this.radioBtnIsParticular.setSelected(false);
         this.radioBtnIsNotParticular.setSelected(true);
     }//GEN-LAST:event_radioBtnIsNotParticularActionPerformed
+
+    private void radioBtnAddAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnAddAppointmentActionPerformed
+        this.radioBtnAddAppointment.setSelected(true);
+        this.radioBtnUpdateAppointment.setSelected(false);
+        this.txtCpfInfo2.setText("");
+        this.btnAddAppointment.setText("ADICIONAR AGENDAMENTO");
+    }//GEN-LAST:event_radioBtnAddAppointmentActionPerformed
+
+    private void radioBtnUpdateAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnUpdateAppointmentActionPerformed
+        this.radioBtnAddAppointment.setSelected(false);
+        this.radioBtnUpdateAppointment.setSelected(true);
+        this.txtCpfInfo2.setText("Atualização é feita pelo cpf");
+        this.btnAddAppointment.setText("ATUALIZAR AGENDAMENTO");
+    }//GEN-LAST:event_radioBtnUpdateAppointmentActionPerformed
+
+    private void radioBtnIsNormalAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnIsNormalAppointmentActionPerformed
+        this.radioBtnIsNormalAppointment.setSelected(true);
+        this.radioBtnIsNotNormalAppointment.setSelected(false);
+    }//GEN-LAST:event_radioBtnIsNormalAppointmentActionPerformed
+
+    private void radioBtnIsNotNormalAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnIsNotNormalAppointmentActionPerformed
+        this.radioBtnIsNormalAppointment.setSelected(false);
+        this.radioBtnIsNotNormalAppointment.setSelected(true);
+    }//GEN-LAST:event_radioBtnIsNotNormalAppointmentActionPerformed
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -716,10 +779,8 @@ public class SecretaryScreen extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SecretaryScreen().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new SecretaryScreen().setVisible(true);
         });
     }
 
@@ -751,18 +812,19 @@ public class SecretaryScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JRadioButton radioBtnAddAppointment;
     private javax.swing.JRadioButton radioBtnIsAdding;
     private javax.swing.JRadioButton radioBtnIsFemale;
     private javax.swing.JRadioButton radioBtnIsMale;
+    private javax.swing.JRadioButton radioBtnIsNormalAppointment;
+    private javax.swing.JRadioButton radioBtnIsNotNormalAppointment;
     private javax.swing.JRadioButton radioBtnIsNotParticular;
     private javax.swing.JRadioButton radioBtnIsParticular;
     private javax.swing.JRadioButton radioBtnIsUpdating;
+    private javax.swing.JRadioButton radioBtnUpdateAppointment;
     private javax.swing.JTextField txtAppointmentData;
     private javax.swing.JLabel txtCpfInfo;
+    private javax.swing.JLabel txtCpfInfo2;
     private javax.swing.JTextField txtDoctorAppointmentCpf;
     private javax.swing.JTextField txtHourAppointment;
     private javax.swing.JTextField txtPatientAdress;
