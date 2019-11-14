@@ -5,13 +5,16 @@ import models.Patient;
 import services.Appointment;
 import java.util.List;
 import java.util.ArrayList;
+import controlllers.SystemController;
 
 public class DoctorScreen extends javax.swing.JFrame {
     
+    private SystemController systemController;
     
-    public DoctorScreen() {
+    public DoctorScreen(SystemController systemController) {
+        this.setSystemController(systemController);
         initComponents();
-        
+        systemController.showAllApointments();
         this.radioBtnAddPatient.setSelected(true);
         this.radioBtnNotCholesterol.setSelected(true);
         this.radioBtnNotDiabetes.setSelected(true);
@@ -19,6 +22,10 @@ public class DoctorScreen extends javax.swing.JFrame {
         this.radioBtnIsNotSmoker.setSelected(true);
         this.radioBtnIsNotAlcoholConsumer.setSelected(true);
         this.CpfInfo.setText("");           
+    }
+    
+    public void setSystemController(SystemController s){
+        this.systemController = s;
     }
 
     @SuppressWarnings("unchecked")
@@ -405,39 +412,11 @@ public class DoctorScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_radioBtnUpdtPatientActionPerformed
 
     private void btnGoToDoctorScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToDoctorScreenActionPerformed
-        
+        SecretaryScreen secretaryScreen = new SecretaryScreen(this.systemController);
+        secretaryScreen.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnGoToDoctorScreenActionPerformed
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DoctorScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DoctorScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DoctorScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DoctorScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new DoctorScreen().setVisible(true);
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CpfInfo;

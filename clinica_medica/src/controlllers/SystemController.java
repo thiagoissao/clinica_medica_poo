@@ -28,7 +28,7 @@ public class SystemController {
     }
     
     public void goToDoctorScreen() {
-        DoctorScreen doctorScreen = new DoctorScreen();
+        DoctorScreen doctorScreen = new DoctorScreen(this);
         doctorScreen.setVisible(true);
     }
     
@@ -36,16 +36,8 @@ public class SystemController {
         return doctor;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
     public Secretary getSecretary() {
         return secretary;
-    }
-
-    public void setSecretary(Secretary secretary) {
-        this.secretary = secretary;
     }
     
     public void addAppointment(Appointment app){
