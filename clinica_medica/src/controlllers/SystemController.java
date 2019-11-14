@@ -8,6 +8,7 @@ import models.Secretary;
 import services.Appointment;
 import screens.DoctorScreen;
 import screens.SecretaryScreen;
+import utils.AddictionalPatientData;
 
 public class SystemController {
     private SecretaryScreen secretaryScreen;
@@ -63,13 +64,16 @@ public class SystemController {
     public void removePatient(String cpf){
         secretary.removePatient(cpf, this.patients);
     }
+    
+    public void addAddictionalPatientData(AddictionalPatientData data, String cpf){
+        doctor.addAddictionalPatientData(cpf, data, this.patients);
+    }
 
     public void showAllPatients(){
         if(this.patients.size() > 0){
             System.out.println("");
             System.out.println("LISTA DE PACIENTES:");
             for(Patient a: this.patients){
-                System.out.println();
                 System.out.println("Nome:" + a.getName());
                 System.out.println("CPF:" + a.getCpf());
                 System.out.println("Data de Nascimento:" + a.getDateBirth());
@@ -86,6 +90,32 @@ public class SystemController {
                 }else{
                     System.out.println("Plano: Plano de Saúde");
                 }
+                System.out.println("----Dados Adicionais----- ");
+                if(a.isSmoker()){
+                    System.out.println("Fumante: SIM");
+                }else{
+                    System.out.println("Fumante: NÃO");
+                }
+                if(a.isAlcoholConsumer()){
+                    System.out.println("Consome Bebida Alcoólica: SIM");
+                }else{
+                    System.out.println("Consome Bebida Alcoólica: NÃO");
+                }
+                if(a.isDiabetesCarrier()){
+                    System.out.println("Diabetes: SIM");
+                }else{
+                    System.out.println("Diabetes: NÃO");
+                }
+                if(a.isIsCholesterolCarrier()){
+                    System.out.println("Colesterol: SIM");
+                }else{
+                    System.out.println("Colesterol: NÃO");
+                }
+                if(a.isHeartDiseaseCarrier()){
+                    System.out.println("Doenção Cardíaca: SIM");
+                }else{
+                    System.out.println("Doenção Cardíaca: NÃO");
+                }
             }
         }else{
             System.out.println();
@@ -93,12 +123,11 @@ public class SystemController {
         }
     }
     
-    public void showAllApointments(){
+    public void showAllAppointments(){
         if(this.appointments.size() > 0){
             System.out.println("");
             System.out.println("LISTA DE AGENDAMENTOS: ");
             for(Appointment a: this.appointments){
-                System.out.println();
                 System.out.println("Data:" + a.getDate());
                 System.out.println("Hora:" + a.getHour());
                 System.out.println("CPF Médico:" + a.getDoctorCpf());

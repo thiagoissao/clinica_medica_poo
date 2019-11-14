@@ -1,11 +1,7 @@
 package screens;
 
-import models.Doctor;
-import models.Patient;
-import services.Appointment;
-import java.util.List;
-import java.util.ArrayList;
 import controlllers.SystemController;
+import utils.AddictionalPatientData;
 
 public class DoctorScreen extends javax.swing.JFrame {
     
@@ -14,8 +10,7 @@ public class DoctorScreen extends javax.swing.JFrame {
     public DoctorScreen(SystemController systemController) {
         this.setSystemController(systemController);
         initComponents();
-        systemController.showAllApointments();
-        this.radioBtnAddPatient.setSelected(true);
+        systemController.showAllAppointments();
         this.radioBtnNotCholesterol.setSelected(true);
         this.radioBtnNotDiabetes.setSelected(true);
         this.radioBtnNotHeartDisease.setSelected(true);
@@ -35,8 +30,6 @@ public class DoctorScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtPatientCpf = new javax.swing.JTextField();
-        radioBtnAddPatient = new javax.swing.JRadioButton();
-        radioBtnUpdtPatient = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -72,20 +65,6 @@ public class DoctorScreen extends javax.swing.JFrame {
         jLabel1.setText("Bem Vindo(a) Doutor(a)");
 
         jLabel2.setText("Bebida Alcoólica?");
-
-        radioBtnAddPatient.setText("Adicionar");
-        radioBtnAddPatient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioBtnAddPatientActionPerformed(evt);
-            }
-        });
-
-        radioBtnUpdtPatient.setText("Atualizar");
-        radioBtnUpdtPatient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioBtnUpdtPatientActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Digite o CPF do Paciente:");
 
@@ -182,6 +161,11 @@ public class DoctorScreen extends javax.swing.JFrame {
         btnAddOrUpdatePatientData.setBackground(new java.awt.Color(101, 174, 40));
         btnAddOrUpdatePatientData.setForeground(java.awt.Color.black);
         btnAddOrUpdatePatientData.setText("INSERIR DADOS");
+        btnAddOrUpdatePatientData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddOrUpdatePatientDataActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Para limpar os dados adicionais digite o CPF do Paciente:");
 
@@ -256,11 +240,7 @@ public class DoctorScreen extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtPatientCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(radioBtnAddPatient)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(radioBtnUpdtPatient))
+                                        .addComponent(txtPatientCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel10)
@@ -281,7 +261,7 @@ public class DoctorScreen extends javax.swing.JFrame {
                         .addGap(297, 297, 297)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnGoToDoctorScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnGoToDoctorScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -298,18 +278,15 @@ public class DoctorScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPatientCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(radioBtnAddPatient)
-                    .addComponent(radioBtnUpdtPatient)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(radioBtnIsNotSmoker)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(radioBtnCholesterol)
-                        .addComponent(radioBtnNotCholesterol)
-                        .addComponent(radioBtnIsSmoker)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radioBtnCholesterol)
+                    .addComponent(radioBtnNotCholesterol)
+                    .addComponent(radioBtnIsSmoker)
+                    .addComponent(radioBtnIsNotSmoker))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -397,25 +374,22 @@ public class DoctorScreen extends javax.swing.JFrame {
         this.radioBtnIsNotSmoker.setSelected(true);
     }//GEN-LAST:event_radioBtnIsNotSmokerActionPerformed
 
-    private void radioBtnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnAddPatientActionPerformed
-        this.radioBtnAddPatient.setSelected(true);
-        this.radioBtnUpdtPatient.setSelected(false);
-        this.btnAddOrUpdatePatientData.setText("INSERIR DADOS");
-        this.CpfInfo.setText("");
-    }//GEN-LAST:event_radioBtnAddPatientActionPerformed
-
-    private void radioBtnUpdtPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnUpdtPatientActionPerformed
-        this.radioBtnAddPatient.setSelected(false);
-        this.radioBtnUpdtPatient.setSelected(true);
-        this.btnAddOrUpdatePatientData.setText("ATUALIZAR DADOS");
-        this.CpfInfo.setText("Atualização é feita pelo CPF");
-    }//GEN-LAST:event_radioBtnUpdtPatientActionPerformed
-
     private void btnGoToDoctorScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToDoctorScreenActionPerformed
         SecretaryScreen secretaryScreen = new SecretaryScreen(this.systemController);
         secretaryScreen.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnGoToDoctorScreenActionPerformed
+
+    private void btnAddOrUpdatePatientDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrUpdatePatientDataActionPerformed
+        AddictionalPatientData patient = new AddictionalPatientData();
+        
+        patient.setIsSmoker(this.radioBtnIsSmoker.isSelected());
+        patient.setIsAlcoholConsumer(this.radioBtnIsAlcoholConsumer.isSelected());
+        patient.setIsDiabetesCarrier(this.radioBtnDiabetes.isSelected());
+        patient.setIsCholesterolCarrier(this.radioBtnCholesterol.isSelected());
+        patient.setIsHeartDiseaseCarrier(this.radioBtnHeartDisease.isSelected());
+        systemController.addAddictionalPatientData(patient, this.txtPatientCpf.getText());
+    }//GEN-LAST:event_btnAddOrUpdatePatientDataActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -436,7 +410,6 @@ public class DoctorScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JRadioButton radioBtnAddPatient;
     private javax.swing.JRadioButton radioBtnCholesterol;
     private javax.swing.JRadioButton radioBtnDiabetes;
     private javax.swing.JRadioButton radioBtnHeartDisease;
@@ -447,7 +420,6 @@ public class DoctorScreen extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioBtnNotCholesterol;
     private javax.swing.JRadioButton radioBtnNotDiabetes;
     private javax.swing.JRadioButton radioBtnNotHeartDisease;
-    private javax.swing.JRadioButton radioBtnUpdtPatient;
     private javax.swing.JTextArea txtAreaAllergies;
     private javax.swing.JTextArea txtAreaCirurgies;
     private javax.swing.JTextField txtPatientCpf;
