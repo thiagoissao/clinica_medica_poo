@@ -106,7 +106,7 @@ public class SystemController {
                 }else{
                     System.out.println("Diabetes: NÃO");
                 }
-                if(a.isIsCholesterolCarrier()){
+                if(a.isCholesterolCarrier()){
                     System.out.println("Colesterol: SIM");
                 }else{
                     System.out.println("Colesterol: NÃO");

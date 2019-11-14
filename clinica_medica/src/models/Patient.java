@@ -142,7 +142,7 @@ public class Patient {
         this.allergies = allergies;
     }
 
-    public boolean isIsCholesterolCarrier() {
+    public boolean isCholesterolCarrier() {
         return isCholesterolCarrier;
     }
 
