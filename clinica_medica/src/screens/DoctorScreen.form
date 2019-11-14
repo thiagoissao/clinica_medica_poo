@@ -29,7 +29,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="btnAddOrUpdatePatientData" min="-2" pref="247" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
                           </Group>
@@ -43,11 +43,13 @@
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="radioBtnIsAlcoholConsumer" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="radioBtnIsSmoker" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="radioBtnIsNotAlcoholConsumer" min="-2" max="-2" attributes="0"/>
                                           <Component id="radioBtnNotDiabetes" min="-2" max="-2" attributes="0"/>
+                                          <Component id="radioBtnIsNotSmoker" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -61,10 +63,6 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                              <Component id="radioBtnIsSmoker" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="radioBtnIsNotSmoker" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -115,7 +113,8 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="297" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnGoToDoctorScreen" min="-2" pref="121" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -126,8 +125,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnGoToDoctorScreen" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="CpfInfo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -140,13 +142,15 @@
                   <Component id="jLabel3" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel4" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="jLabel6" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="radioBtnIsSmoker" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="radioBtnCholesterol" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="radioBtnIsNotSmoker" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="radioBtnNotCholesterol" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="radioBtnIsNotSmoker" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel4" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="jLabel6" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="radioBtnCholesterol" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="radioBtnNotCholesterol" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="radioBtnIsSmoker" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -187,7 +191,7 @@
                   <Component id="txtPatientCpfClear" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="110" max="32767" attributes="0"/>
+              <EmptySpace pref="108" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -416,6 +420,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Atualiza&#xe7;&#xe3;o &#xe9; feita pelo CPF"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnGoToDoctorScreen">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ir tela Secret&#xe1;ria"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGoToDoctorScreenActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

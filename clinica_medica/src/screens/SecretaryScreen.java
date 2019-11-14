@@ -1,24 +1,15 @@
-package clinica_medica;
+package screens;
 
-import java.util.List;
-import java.util.ArrayList;
+import controlllers.SystemController;
 import services.Appointment;
-import models.Doctor;
 import models.Patient;
-import models.Secretary;
 
 public class SecretaryScreen extends javax.swing.JFrame {
-        
-    //TESTES
-    private final Doctor doctor;
-    private final Secretary secretary;
-    private final List<Appointment> appointments = new ArrayList<>();
-    private final List<Patient> patients = new ArrayList<>();
+    
+    private final SystemController systemController;
 
     public SecretaryScreen() {
-        this.doctor = new Doctor("Neymar Júnior", "12345678", "(44)99999-9999");
-        this.secretary = new Secretary("Pai do Neymar", "987654321", "(44)11111-1111");
-        
+        this.systemController = new SystemController();
         setupComponents();
     }
     
@@ -464,18 +455,6 @@ public class SecretaryScreen extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnRemoveAppointment)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(268, 268, 268))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnAddOrUpdatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(275, 275, 275))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnAddAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(246, 246, 246))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(29, 29, 29)
@@ -489,7 +468,19 @@ public class SecretaryScreen extends javax.swing.JFrame {
                                 .addComponent(btnShowPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(73, 73, 73)
                                 .addComponent(btnGoToDoctorScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(268, 268, 268))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnAddOrUpdatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(276, 276, 276))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnAddAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(247, 247, 247))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -537,15 +528,15 @@ public class SecretaryScreen extends javax.swing.JFrame {
                     .addComponent(txtPatientAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(radioBtnIsParticular)
                     .addComponent(radioBtnIsNotParticular))
-                .addGap(12, 12, 12)
-                .addComponent(btnAddOrUpdatePatient)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAddOrUpdatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel12)
                     .addComponent(txtPatientCPFRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRemovePatient))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(radioBtnAddAppointment)
@@ -575,7 +566,7 @@ public class SecretaryScreen extends javax.swing.JFrame {
                         .addComponent(jLabel17)
                         .addComponent(radioBtnIsNormalAppointment)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAddAppointment)
+                .addComponent(btnAddAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
@@ -589,9 +580,8 @@ public class SecretaryScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGoToDoctorScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoToDoctorScreenActionPerformed
-        DoctorScreen frame = new DoctorScreen();
-        frame.setVisible(true);
-        this.setVisible(false);
+        systemController.goToDoctorScreen();
+        dispose();
     }//GEN-LAST:event_btnGoToDoctorScreenActionPerformed
 
     private void txtPatientDateBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientDateBirthActionPerformed
@@ -642,9 +632,9 @@ public class SecretaryScreen extends javax.swing.JFrame {
         patient.setIsParticular(this.radioBtnIsParticular.isSelected());
         
         if(this.radioBtnIsAdding.isSelected()){
-            secretary.addPatient(patient, patients);
+            systemController.addPatient(patient);
         }else{
-            secretary.updatePatient(this.txtPatientCPF.getText(), patient, patients);
+            systemController.updatePatient(this.txtPatientCPF.getText(), patient);
         }
         
         this.txtPatientName.setText("");
@@ -657,13 +647,12 @@ public class SecretaryScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddOrUpdatePatientActionPerformed
 
     private void btnRemovePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovePatientActionPerformed
-        secretary.removePatient(this.txtPatientCPFRemove.getText(), patients);
-        System.out.println(patients);
+        systemController.removePatient(this.txtPatientCPFRemove.getText());
         this.txtPatientCPFRemove.setText("");
     }//GEN-LAST:event_btnRemovePatientActionPerformed
 
     private void btnAddAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAppointmentActionPerformed
-        Appointment app = new Appointment(doctor.getCpf());
+        Appointment app = new Appointment(this.systemController.getDoctor().getCpf());
         app.setDate(this.txtAppointmentData.getText());
         app.setHour(this.txtHourAppointment.getText());
         app.setDoctorCpf(this.txtDoctorAppointmentCpf.getText());
@@ -671,11 +660,10 @@ public class SecretaryScreen extends javax.swing.JFrame {
         app.setIsNormalAppointment(this.radioBtnIsNormalAppointment.isSelected());
      
         if(this.radioBtnAddAppointment.isSelected()){
-            secretary.addAppointment(app, appointments);    
+            this.systemController.addAppointment(app);
         }else{
-            secretary.updateAppointment(this.txtPatientAppointmentCpf.getText(), app, appointments);
+            systemController.updateAppointment(this.txtPatientAppointmentCpf.getText(), app);
         }
-        
         
         this.txtAppointmentData.setText("");
         this.txtHourAppointment.setText("");
@@ -684,28 +672,28 @@ public class SecretaryScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddAppointmentActionPerformed
 
     private void btnRemoveAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveAppointmentActionPerformed
-        secretary.removeAppointment(this.txtPatientRemoveAppointmentCpf.getText(), appointments);
+        systemController.removeAppointment(this.txtPatientRemoveAppointmentCpf.getText());
     }//GEN-LAST:event_btnRemoveAppointmentActionPerformed
 
     private void btnShowPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowPatientActionPerformed
-        secretary.showAllPatients(patients);
+        systemController.showAllPatients();
     }//GEN-LAST:event_btnShowPatientActionPerformed
 
     private void btnShowAllAppointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllAppointsActionPerformed
-        secretary.showAllApointments(appointments);
+        systemController.showAllApointments();
     }//GEN-LAST:event_btnShowAllAppointsActionPerformed
 
     private void radioBtnIsAddingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnIsAddingActionPerformed
         this.radioBtnIsAdding.setSelected(true);
         this.radioBtnIsUpdating.setSelected(false);
-        this.btnAddOrUpdatePatient.setText("Adicionar Paciente");
+        this.btnAddOrUpdatePatient.setText("ADICIONAR PACIENTE");
         this.txtCpfInfo.setText("");
     }//GEN-LAST:event_radioBtnIsAddingActionPerformed
 
     private void radioBtnIsUpdatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnIsUpdatingActionPerformed
         this.radioBtnIsAdding.setSelected(false);
         this.radioBtnIsUpdating.setSelected(true);
-        this.btnAddOrUpdatePatient.setText("Atualizar Paciente");
+        this.btnAddOrUpdatePatient.setText("ATUALIZAR PACIENTE");
         this.txtCpfInfo.setText("Atualiação é feita pelo CPF!");
     }//GEN-LAST:event_radioBtnIsUpdatingActionPerformed
 
