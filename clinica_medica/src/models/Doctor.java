@@ -13,6 +13,7 @@ public class Doctor extends PessoaClinica{
     
     public List<Patient> addAddictionalPatientData(String cpf, AddictionalPatientData data , List<Patient> patients){
         Patient patient = Crud.getPatient(cpf, patients);
+        if(patient == null) return null;
         
         patient.setIsSmoker(data.isSmoker(), this);
         patient.setIsAlcoholConsumer(data.isAlcoholConsumer(), this);
@@ -21,9 +22,7 @@ public class Doctor extends PessoaClinica{
         patient.setSurgeries(data.getSurgeries(), this);
         patient.setAllergies(data.getAllergies(), this);
         patient.setIsCholesterolCarrier(data.isIsCholesterolCarrier(), this);
-
         return Crud.updatePatient(cpf, patient, patients);
-     
     }
     
     public List<Patient> updateAddictionalPatientData(String cpf, AddictionalPatientData data , List<Patient> patients){

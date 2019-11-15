@@ -5,18 +5,21 @@ import utils.AddictionalPatientData;
 
 public class DoctorScreen extends javax.swing.JFrame {
     
-    private SystemController systemController;
+    private SystemController systemController = new SystemController();
     
     public DoctorScreen(SystemController systemController) {
-        this.setSystemController(systemController);
+        this.setSystemController(systemController);       
+        setupComponents();
+    }
+    
+    public void setupComponents(){
         initComponents();
-        systemController.showAllAppointments();
         this.radioBtnNotCholesterol.setSelected(true);
         this.radioBtnNotDiabetes.setSelected(true);
         this.radioBtnNotHeartDisease.setSelected(true);
         this.radioBtnIsNotSmoker.setSelected(true);
         this.radioBtnIsNotAlcoholConsumer.setSelected(true);
-        this.CpfInfo.setText("");           
+        this.msgAddictionalData.setText("");    
     }
     
     public void setSystemController(SystemController s){
@@ -54,10 +57,11 @@ public class DoctorScreen extends javax.swing.JFrame {
         btnAddOrUpdatePatientData = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txtPatientCpfClear = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnClearAddictionalPatientData = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        CpfInfo = new javax.swing.JLabel();
+        msgAddictionalData = new javax.swing.JLabel();
         btnGoToDoctorScreen = new javax.swing.JButton();
+        btnShowAllPatients = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -169,21 +173,33 @@ public class DoctorScreen extends javax.swing.JFrame {
 
         jLabel10.setText("Para limpar os dados adicionais digite o CPF do Paciente:");
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(226, 66, 66));
-        jButton2.setText("Limpar Dados");
+        btnClearAddictionalPatientData.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        btnClearAddictionalPatientData.setForeground(new java.awt.Color(226, 66, 66));
+        btnClearAddictionalPatientData.setText("Limpar Dados");
+        btnClearAddictionalPatientData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearAddictionalPatientDataActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel11.setText("Adicionar Dados Adicionais do Paciente");
+        jLabel11.setText("Dados Adicionais do Paciente");
 
-        CpfInfo.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        CpfInfo.setForeground(new java.awt.Color(182, 147, 20));
-        CpfInfo.setText("Atualização é feita pelo CPF");
+        msgAddictionalData.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        msgAddictionalData.setForeground(new java.awt.Color(182, 147, 20));
+        msgAddictionalData.setText("Atualização é feita pelo CPF");
 
         btnGoToDoctorScreen.setText("Ir tela Secretária");
         btnGoToDoctorScreen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGoToDoctorScreenActionPerformed(evt);
+            }
+        });
+
+        btnShowAllPatients.setText("show All in console");
+        btnShowAllPatients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowAllPatientsActionPerformed(evt);
             }
         });
 
@@ -194,131 +210,148 @@ public class DoctorScreen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnAddOrUpdatePatientData, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(217, 217, 217))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(radioBtnDiabetes)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(radioBtnIsAlcoholConsumer))
-                                            .addComponent(radioBtnIsSmoker))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(radioBtnIsNotAlcoholConsumer)
-                                            .addComponent(radioBtnNotDiabetes)
-                                            .addComponent(radioBtnIsNotSmoker)))
-                                    .addComponent(jLabel7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioBtnHeartDisease)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioBtnNotHeartDisease))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioBtnCholesterol)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioBtnNotCholesterol))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(CpfInfo)
-                                .addGap(87, 87, 87))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtPatientCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel10)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(txtPatientCpfClear, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(28, 28, 28)
-                                            .addComponent(jButton2))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel9)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel8)
-                                            .addGap(26, 26, 26)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 10, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(297, 297, 297)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnGoToDoctorScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGap(69, 69, 69)
+                        .addComponent(btnGoToDoctorScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel4)
+                        .addGap(70, 70, 70)
+                        .addComponent(radioBtnIsSmoker)
+                        .addGap(18, 18, 18)
+                        .addComponent(radioBtnIsNotSmoker)
+                        .addGap(262, 262, 262)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(radioBtnCholesterol)
+                        .addGap(18, 18, 18)
+                        .addComponent(radioBtnNotCholesterol))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radioBtnIsAlcoholConsumer)
+                            .addComponent(radioBtnDiabetes))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radioBtnIsNotAlcoholConsumer)
+                            .addComponent(radioBtnNotDiabetes))
+                        .addGap(218, 218, 218)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(radioBtnHeartDisease)
+                        .addGap(18, 18, 18)
+                        .addComponent(radioBtnNotHeartDisease))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel8)
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(265, 265, 265)
+                        .addComponent(btnAddOrUpdatePatientData, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(msgAddictionalData))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel10)
+                        .addGap(12, 12, 12)
+                        .addComponent(txtPatientCpfClear, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(btnClearAddictionalPatientData))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPatientCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnShowAllPatients, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel1))
                     .addComponent(btnGoToDoctorScreen))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(CpfInfo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnShowAllPatients))
+                .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPatientCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPatientCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(radioBtnCholesterol)
-                    .addComponent(radioBtnNotCholesterol)
-                    .addComponent(radioBtnIsSmoker)
-                    .addComponent(radioBtnIsNotSmoker))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radioBtnIsSmoker)
+                            .addComponent(radioBtnIsNotSmoker)
+                            .addComponent(radioBtnCholesterol)
+                            .addComponent(radioBtnNotCholesterol))))
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(radioBtnIsAlcoholConsumer)
-                            .addComponent(radioBtnIsNotAlcoholConsumer))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(radioBtnDiabetes)
-                            .addComponent(radioBtnNotDiabetes)))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(radioBtnIsAlcoholConsumer)
+                        .addGap(17, 17, 17)
+                        .addComponent(radioBtnDiabetes))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(radioBtnIsNotAlcoholConsumer)
+                        .addGap(17, 17, 17)
+                        .addComponent(radioBtnNotDiabetes))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(radioBtnHeartDisease)
-                            .addComponent(radioBtnNotHeartDisease))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radioBtnHeartDisease))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(radioBtnNotHeartDisease)))
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnAddOrUpdatePatientData, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAddOrUpdatePatientData, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(msgAddictionalData)))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel10))
                     .addComponent(txtPatientCpfClear, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addContainerGap(108, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(btnClearAddictionalPatientData))))
         );
 
         pack();
@@ -388,15 +421,38 @@ public class DoctorScreen extends javax.swing.JFrame {
         patient.setIsDiabetesCarrier(this.radioBtnDiabetes.isSelected());
         patient.setIsCholesterolCarrier(this.radioBtnCholesterol.isSelected());
         patient.setIsHeartDiseaseCarrier(this.radioBtnHeartDisease.isSelected());
-        systemController.addAddictionalPatientData(patient, this.txtPatientCpf.getText());
+        
+        if(this.systemController.addAddictionalPatientData(patient, this.txtPatientCpf.getText()) != null){
+            this.msgAddictionalData.setText("Adicionado com sucesso!");
+        }else{
+            this.msgAddictionalData.setText("Erro ao adicionar!");
+        }
+        this.txtPatientCpf.setText("");
+        SecretaryScreen.setTimeout(() -> this.msgAddictionalData.setText(""), 2000);
     }//GEN-LAST:event_btnAddOrUpdatePatientDataActionPerformed
+
+    private void btnShowAllPatientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllPatientsActionPerformed
+        systemController.showAllPatients();
+    }//GEN-LAST:event_btnShowAllPatientsActionPerformed
+
+    private void btnClearAddictionalPatientDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearAddictionalPatientDataActionPerformed
+        AddictionalPatientData patient = new AddictionalPatientData();
+        
+        patient.setIsSmoker(false);
+        patient.setIsAlcoholConsumer(false);
+        patient.setIsDiabetesCarrier(false);
+        patient.setIsCholesterolCarrier(false);
+        patient.setIsHeartDiseaseCarrier(false);
+        this.systemController.addAddictionalPatientData(patient, this.txtPatientCpfClear.getText());
+        this.txtPatientCpfClear.setText("");
+    }//GEN-LAST:event_btnClearAddictionalPatientDataActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CpfInfo;
     private javax.swing.JButton btnAddOrUpdatePatientData;
+    private javax.swing.JButton btnClearAddictionalPatientData;
     private javax.swing.JButton btnGoToDoctorScreen;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnShowAllPatients;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -410,6 +466,7 @@ public class DoctorScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel msgAddictionalData;
     private javax.swing.JRadioButton radioBtnCholesterol;
     private javax.swing.JRadioButton radioBtnDiabetes;
     private javax.swing.JRadioButton radioBtnHeartDisease;

@@ -13,10 +13,10 @@ import utils.AddictionalPatientData;
 public class SystemController {
     private SecretaryScreen secretaryScreen;
     
-    private Doctor doctor;
-    private Secretary secretary;
-    private List<Appointment> appointments = new ArrayList<>();
-    private List<Patient> patients = new ArrayList<>();
+    private final Doctor doctor;
+    private final Secretary secretary;
+    private final List<Appointment> appointments = new ArrayList<>();
+    private final List<Patient> patients = new ArrayList<>();
     
     public SystemController() {
         this.doctor = new Doctor("Neymar Júnior", "12345678", "(44)99999-9999");
@@ -41,32 +41,32 @@ public class SystemController {
         return secretary;
     }
     
-    public void addAppointment(Appointment app){
-        this.secretary.addAppointment(app, this.appointments);
+    public List<Appointment> addAppointment(Appointment app){
+        return secretary.addAppointment(app, this.appointments, this.patients);
     }
     
-    public void removeAppointment(String cpf){
-        this.secretary.removeAppointment(cpf, this.appointments);
+    public List<Appointment> removeAppointment(String cpf){
+        return secretary.removeAppointment(cpf, this.appointments);
     }
     
-    public void updateAppointment(String cpf, Appointment app){
-        secretary.updateAppointment(cpf, app, this.appointments);
+    public List<Appointment> updateAppointment(String cpf, Appointment app){
+        return secretary.updateAppointment(cpf, app, this.appointments);
     }
     
-    public void addPatient(Patient patient){
-        secretary.addPatient(patient, this.patients);
+    public List<Patient> addPatient(Patient patient){
+        return secretary.addPatient(patient, this.patients);
     }
     
-    public void updatePatient(String cpf, Patient patient){
-        secretary.updatePatient(cpf, patient, this.patients);
+    public List<Patient> updatePatient(String cpf, Patient patient){
+        return secretary.updatePatient(cpf, patient, this.patients);
     }
     
-    public void removePatient(String cpf){
-        secretary.removePatient(cpf, this.patients);
+    public List<Patient> removePatient(String cpf){
+        return secretary.removePatient(cpf, this.patients, this.appointments);
     }
     
-    public void addAddictionalPatientData(AddictionalPatientData data, String cpf){
-        doctor.addAddictionalPatientData(cpf, data, this.patients);
+    public List<Patient> addAddictionalPatientData(AddictionalPatientData data, String cpf){
+        return doctor.addAddictionalPatientData(cpf, data, this.patients);
     }
 
     public void showAllPatients(){
@@ -116,6 +116,7 @@ public class SystemController {
                 }else{
                     System.out.println("Doenção Cardíaca: NÃO");
                 }
+                System.out.println("");
             }
         }else{
             System.out.println();
@@ -137,7 +138,7 @@ public class SystemController {
                 }else{
                     System.out.println("Consulta: Retorno");
                 }
-                
+                System.out.println("");
             }
         }else{
             System.out.println();

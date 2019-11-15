@@ -27,7 +27,6 @@ public class Patient {
     private List<String> diseaseDiagnosis;
     private String treatmentDescription;
     
-    
     public String getName() {
         return name;
     }

@@ -18,12 +18,12 @@ public class Secretary extends PessoaClinica{
         return Crud.updatePatient(cpf, patient, patients);
     }
     
-    public List<Patient> removePatient(String cpf, List<Patient> patients){
-        return Crud.removePatient(cpf, patients);
+    public List<Patient> removePatient(String cpf, List<Patient> patients, List<Appointment> apps){
+        return Crud.removePatient(cpf, patients, apps);
     }
     
-    public List<Appointment> addAppointment(Appointment a, List<Appointment> appointments){
-        return Crud.addAppointment(a, appointments);
+    public List<Appointment> addAppointment(Appointment a, List<Appointment> appointments, List<Patient> patients){
+        return Crud.addAppointment(a, appointments, patients);
     }
     
     public List<Appointment> updateAppointment(String patientCpf, Appointment a, List<Appointment> appointments){
