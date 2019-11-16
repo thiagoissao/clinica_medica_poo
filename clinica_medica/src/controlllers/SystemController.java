@@ -1,6 +1,7 @@
 package controlllers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import models.Doctor;
 import models.Patient;
@@ -68,6 +69,14 @@ public class SystemController {
     public List<Patient> addAddictionalPatientData(AddictionalPatientData data, String cpf){
         return doctor.addAddictionalPatientData(cpf, data, this.patients);
     }
+    
+    public List<String> splitString(String string, String delimitador){
+        String array[] = string.split(delimitador);
+        for(int i=0; i<array.length; i++){
+            array[i] = array[i].trim();
+        }
+        return Arrays.asList(array);
+    }
 
     public void showAllPatients(){
         if(this.patients.size() > 0){
@@ -116,6 +125,8 @@ public class SystemController {
                 }else{
                     System.out.println("Doenção Cardíaca: NÃO");
                 }
+                System.out.println("Cirurgias: " + a.getSurgeries());
+                System.out.println("Alergias: " + a.getAllergies());
                 System.out.println("");
             }
         }else{
