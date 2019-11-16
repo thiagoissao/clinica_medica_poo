@@ -1,7 +1,6 @@
 package utils;
 
 import java.util.List;
-import models.PessoaClinica;
 
 public class AddictionalPatientData{
     private boolean isSmoker;

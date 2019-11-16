@@ -66,6 +66,7 @@ public final class Crud {
     
     public static List<Patient> addPatient(Patient patient, List<Patient> patients){
         if(patient.getCpf().equals("")) return null;
+        if(Crud.getPatient(patient.getCpf(), patients) != null) return null;
         List<Patient> p = patients;
         p.add(patient);
         return p;

@@ -1,5 +1,6 @@
 package controlllers;
 
+import java.util.Calendar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +11,7 @@ import services.Appointment;
 import screens.DoctorScreen;
 import screens.SecretaryScreen;
 import utils.AddictionalPatientData;
+import utils.DateFormat;
 
 public class SystemController {
     private SecretaryScreen secretaryScreen;
@@ -25,6 +27,7 @@ public class SystemController {
     }
     
     public static void main(String[] args){
+        Calendar c = Calendar.getInstance();
         SecretaryScreen secretaryScreen = new SecretaryScreen();
         secretaryScreen.setVisible(true);
     }

@@ -3,6 +3,7 @@ package screens;
 import controlllers.SystemController;
 import services.Appointment;
 import models.Patient;
+import utils.DateFormat;
 
 public class SecretaryScreen extends javax.swing.JFrame{
     
@@ -23,6 +24,8 @@ public class SecretaryScreen extends javax.swing.JFrame{
         this.radioBtnIsAdding.setSelected(true);
         this.txtCpfInfo.setText("");
         this.txtCpfInfo2.setText("");
+        this.txtAppointmentData.setText("dd/mm/yyyy");
+        this.txtHourAppointment.setText("HH:mm");
         this.radioBtnIsUpdating.setSelected(false);
         this.radioBtnIsMale.setSelected(true);
         this.radioBtnIsFemale.setSelected(false);
@@ -250,12 +253,22 @@ public class SecretaryScreen extends javax.swing.JFrame{
 
         jLabel18.setText("CPF (Médico):");
 
+        txtHourAppointment.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtHourAppointmentMouseClicked(evt);
+            }
+        });
         txtHourAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHourAppointmentActionPerformed(evt);
             }
         });
 
+        txtAppointmentData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAppointmentDataMouseClicked(evt);
+            }
+        });
         txtAppointmentData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAppointmentDataActionPerformed(evt);
@@ -708,6 +721,16 @@ public class SecretaryScreen extends javax.swing.JFrame{
 
     private void btnAddAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAppointmentActionPerformed
         Appointment app = new Appointment(this.systemController.getDoctor().getCpf());
+        System.out.println(this.txtAppointmentData.getText());
+        System.out.println(this.txtHourAppointment.getText());
+        if(!DateFormat.isDateValid(this.txtAppointmentData.getText()) ||
+                !DateFormat.isHourValid(this.txtHourAppointment.getText())){
+                this.msgAppointment.setText("Data ou Hora inválidos!");
+                this.txtAppointmentData.setText("");
+                this.txtHourAppointment.setText("");
+                return;
+        } 
+        
         app.setDate(this.txtAppointmentData.getText());
         app.setHour(this.txtHourAppointment.getText());
         app.setDoctorCpf(this.txtDoctorAppointmentCpf.getText());
@@ -811,6 +834,14 @@ public class SecretaryScreen extends javax.swing.JFrame{
         this.radioBtnIsNormalAppointment.setSelected(false);
         this.radioBtnIsNotNormalAppointment.setSelected(true);
     }//GEN-LAST:event_radioBtnIsNotNormalAppointmentActionPerformed
+
+    private void txtAppointmentDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAppointmentDataMouseClicked
+        this.txtAppointmentData.setText("");
+    }//GEN-LAST:event_txtAppointmentDataMouseClicked
+
+    private void txtHourAppointmentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHourAppointmentMouseClicked
+        this.txtHourAppointment.setText("");
+    }//GEN-LAST:event_txtHourAppointmentMouseClicked
 
     public static void setTimeout(Runnable runnable, int delay){
         new Thread(() -> {
