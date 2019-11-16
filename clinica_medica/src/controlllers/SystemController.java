@@ -121,12 +121,15 @@ public class SystemController {
                     System.out.println("Colesterol: NÃO");
                 }
                 if(a.isHeartDiseaseCarrier()){
-                    System.out.println("Doenção Cardíaca: SIM");
+                    System.out.println("Doença Cardíaca: SIM");
                 }else{
-                    System.out.println("Doenção Cardíaca: NÃO");
+                    System.out.println("Doença Cardíaca: NÃO");
                 }
                 System.out.println("Cirurgias: " + a.getSurgeries());
                 System.out.println("Alergias: " + a.getAllergies());
+                System.out.println("Sintomas: " + a.getSymptom());
+                System.out.println("Diagnósticos: " + a.getDiseaseDiagnosis());
+                System.out.println("Prescrição Tratamento: " + a.getTreatmentDescription());
                 System.out.println("");
             }
         }else{

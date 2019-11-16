@@ -1,7 +1,6 @@
 package utils;
 
 import java.util.List;
-import models.PessoaClinica;
 
 public class PatientMedicalRecord {
     private List<String> symptom;
@@ -12,30 +11,24 @@ public class PatientMedicalRecord {
         return symptom;
     }
 
-    public void setSymptom(List<String> symptom, PessoaClinica p) {
-        if(p.getCargo() == Cargo.getDoctorRef()){
-            this.symptom = symptom;
-        }
+    public void setSymptom(List<String> symptom) {
+        this.symptom = symptom;
     }
 
     public List<String> getDiseaseDiagnosis() {
         return diseaseDiagnosis;
     }
 
-    public void setDiseaseDiagnosis(List<String> diseaseDiagnosis, PessoaClinica p) {
-        if(p.getCargo() == Cargo.getDoctorRef()){
-            this.diseaseDiagnosis = diseaseDiagnosis;
-        }
+    public void setDiseaseDiagnosis(List<String> diseaseDiagnosis) {
+        this.diseaseDiagnosis = diseaseDiagnosis;
     }
 
     public String getTreatmentDescription() {
         return treatmentDescription;
     }
 
-    public void setTreatmentDescription(String treatmentDescription, PessoaClinica p) {
-        if(p.getCargo() == Cargo.getDoctorRef()){
-            this.treatmentDescription = treatmentDescription;
-        }
+    public void setTreatmentDescription(String treatmentDescription) {
+        this.treatmentDescription = treatmentDescription;
     }
     
     

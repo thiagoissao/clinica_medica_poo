@@ -22,6 +22,9 @@ public class Doctor extends PessoaClinica{
         patient.setSurgeries(data.getSurgeries(), this);
         patient.setAllergies(data.getAllergies(), this);
         patient.setIsCholesterolCarrier(data.isIsCholesterolCarrier(), this);
+        patient.setSymptom(data.getSymptom(), this);
+        patient.setDiseaseDiagnosis(data.getDiseaseDiagnosis(), this);
+        patient.setTreatmentDescription(data.getTreatmentDescription(), this);
         return Crud.updatePatient(cpf, patient, patients);
     }
     
