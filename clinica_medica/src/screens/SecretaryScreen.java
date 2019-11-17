@@ -90,18 +90,23 @@ public class SecretaryScreen extends javax.swing.JFrame{
         txtPatientRemoveAppointmentCpf = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         btnAddAppointment = new javax.swing.JButton();
-        btnShowAllAppoints = new javax.swing.JButton();
-        btnShowPatient = new javax.swing.JButton();
         txtCpfInfo = new javax.swing.JLabel();
         txtCpfInfo2 = new javax.swing.JLabel();
         msgPatient = new javax.swing.JLabel();
         msgAppointment = new javax.swing.JLabel();
         msgRemovePatient = new javax.swing.JLabel();
         msgRemoveAppointment = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        btnShowPatient = new javax.swing.JButton();
+        btnShowAllAppoints = new javax.swing.JButton();
+        btnSecretaryRecord = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.white);
+        setMinimumSize(new java.awt.Dimension(1020, 700));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnGoToDoctorScreen.setText("Ir tela Médico");
         btnGoToDoctorScreen.addActionListener(new java.awt.event.ActionListener() {
@@ -109,64 +114,81 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 btnGoToDoctorScreenActionPerformed(evt);
             }
         });
+        getContentPane().add(btnGoToDoctorScreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 177, -1));
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel1.setText("BEM VINDO(A) SECRETÁRIO(A)");
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabel1.setText("Informações são exibidas no console");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 60, 220, -1));
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel2.setText("Pacientes:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 53, -1, -1));
 
         jLabel4.setText("Nome:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 106, -1, -1));
 
         jLabel5.setText("Sexo:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 159, -1, -1));
 
         jLabel6.setText("Telefone:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 159, -1, -1));
 
         jLabel7.setText("E-mail:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 212, -1, -1));
 
         jLabel8.setText("CPF:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 106, -1, -1));
 
         jLabel9.setText("Data de Nascimento:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 212, -1, -1));
 
         jLabel10.setText("Tipo:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 265, -1, -1));
 
         jLabel11.setText("Endereço:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 265, -1, -1));
 
         txtPatientDateBirth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPatientDateBirthActionPerformed(evt);
             }
         });
+        getContentPane().add(txtPatientDateBirth, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 204, 147, -1));
 
         txtPatientEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPatientEmailActionPerformed(evt);
             }
         });
+        getContentPane().add(txtPatientEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 204, 285, -1));
 
         txtPatientName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPatientNameActionPerformed(evt);
             }
         });
+        getContentPane().add(txtPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 98, 285, -1));
 
         txtPatientAdress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPatientAdressActionPerformed(evt);
             }
         });
+        getContentPane().add(txtPatientAdress, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 257, 285, -1));
 
         txtPatientCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPatientCPFActionPerformed(evt);
             }
         });
+        getContentPane().add(txtPatientCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 98, 253, -1));
 
         txtPatientPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPatientPhoneNumberActionPerformed(evt);
             }
         });
+        getContentPane().add(txtPatientPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 151, 219, -1));
 
         radioBtnIsAdding.setText("Adicionar");
         radioBtnIsAdding.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +196,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 radioBtnIsAddingActionPerformed(evt);
             }
         });
+        getContentPane().add(radioBtnIsAdding, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 54, -1, -1));
 
         radioBtnIsUpdating.setText("Atualizar");
         radioBtnIsUpdating.addActionListener(new java.awt.event.ActionListener() {
@@ -181,6 +204,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 radioBtnIsUpdatingActionPerformed(evt);
             }
         });
+        getContentPane().add(radioBtnIsUpdating, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 54, -1, -1));
 
         radioBtnIsMale.setText("M");
         radioBtnIsMale.addActionListener(new java.awt.event.ActionListener() {
@@ -188,6 +212,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 radioBtnIsMaleActionPerformed(evt);
             }
         });
+        getContentPane().add(radioBtnIsMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 157, -1, -1));
 
         radioBtnIsFemale.setText("F");
         radioBtnIsFemale.addActionListener(new java.awt.event.ActionListener() {
@@ -195,6 +220,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 radioBtnIsFemaleActionPerformed(evt);
             }
         });
+        getContentPane().add(radioBtnIsFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 157, -1, -1));
 
         radioBtnIsParticular.setText("Particular");
         radioBtnIsParticular.addActionListener(new java.awt.event.ActionListener() {
@@ -202,6 +228,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 radioBtnIsParticularActionPerformed(evt);
             }
         });
+        getContentPane().add(radioBtnIsParticular, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 263, -1, -1));
 
         radioBtnIsNotParticular.setText("Plano de Saúde");
         radioBtnIsNotParticular.addActionListener(new java.awt.event.ActionListener() {
@@ -209,6 +236,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 radioBtnIsNotParticularActionPerformed(evt);
             }
         });
+        getContentPane().add(radioBtnIsNotParticular, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 263, -1, -1));
 
         btnRemovePatient.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         btnRemovePatient.setForeground(new java.awt.Color(226, 66, 66));
@@ -218,17 +246,21 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 btnRemovePatientActionPerformed(evt);
             }
         });
+        getContentPane().add(btnRemovePatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 347, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setText("Remover Paciente:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 351, -1, -1));
 
         txtPatientCPFRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPatientCPFRemoveActionPerformed(evt);
             }
         });
+        getContentPane().add(txtPatientCPFRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 349, 147, 23));
 
         jLabel12.setText("CPF:");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 351, -1, -1));
 
         btnAddOrUpdatePatient.setBackground(new java.awt.Color(101, 174, 40));
         btnAddOrUpdatePatient.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
@@ -239,19 +271,26 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 btnAddOrUpdatePatientActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAddOrUpdatePatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 298, 237, 37));
 
         jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel13.setText("Agendamentos:");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 381, -1, -1));
 
         jLabel14.setText("Data:");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 427, -1, -1));
 
         jLabel15.setText("Horário:");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 427, -1, -1));
 
         jLabel16.setText("CPF (paciente):");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 487, -1, -1));
 
         jLabel17.setText("Tipo de Consulta:");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 534, -1, -1));
 
         jLabel18.setText("CPF (Médico):");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 487, -1, -1));
 
         txtHourAppointment.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -263,6 +302,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 txtHourAppointmentActionPerformed(evt);
             }
         });
+        getContentPane().add(txtHourAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 419, 228, -1));
 
         txtAppointmentData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -274,18 +314,21 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 txtAppointmentDataActionPerformed(evt);
             }
         });
+        getContentPane().add(txtAppointmentData, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 419, 333, -1));
 
         txtPatientAppointmentCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPatientAppointmentCpfActionPerformed(evt);
             }
         });
+        getContentPane().add(txtPatientAppointmentCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 479, 268, -1));
 
         txtDoctorAppointmentCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDoctorAppointmentCpfActionPerformed(evt);
             }
         });
+        getContentPane().add(txtDoctorAppointmentCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 479, 192, -1));
 
         radioBtnIsNormalAppointment.setText("Normal");
         radioBtnIsNormalAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -293,6 +336,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 radioBtnIsNormalAppointmentActionPerformed(evt);
             }
         });
+        getContentPane().add(radioBtnIsNormalAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 532, -1, -1));
 
         radioBtnIsNotNormalAppointment.setText("Retorno");
         radioBtnIsNotNormalAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -300,6 +344,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 radioBtnIsNotNormalAppointmentActionPerformed(evt);
             }
         });
+        getContentPane().add(radioBtnIsNotNormalAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 532, -1, -1));
 
         radioBtnAddAppointment.setText("Adicionar");
         radioBtnAddAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -307,6 +352,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 radioBtnAddAppointmentActionPerformed(evt);
             }
         });
+        getContentPane().add(radioBtnAddAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 382, -1, -1));
 
         radioBtnUpdateAppointment.setText("Atualizar");
         radioBtnUpdateAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -314,6 +360,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 radioBtnUpdateAppointmentActionPerformed(evt);
             }
         });
+        getContentPane().add(radioBtnUpdateAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 382, -1, -1));
 
         btnRemoveAppointment.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         btnRemoveAppointment.setForeground(new java.awt.Color(226, 66, 66));
@@ -323,17 +370,21 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 btnRemoveAppointmentActionPerformed(evt);
             }
         });
+        getContentPane().add(btnRemoveAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 619, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel19.setText("Remover Agendamento:");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 623, -1, -1));
 
         txtPatientRemoveAppointmentCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPatientRemoveAppointmentCpfActionPerformed(evt);
             }
         });
+        getContentPane().add(txtPatientRemoveAppointmentCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 621, 147, 23));
 
         jLabel20.setText("CPF (Paciente):");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 623, -1, -1));
 
         btnAddAppointment.setBackground(new java.awt.Color(101, 174, 40));
         btnAddAppointment.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
@@ -344,290 +395,102 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 btnAddAppointmentActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAddAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 561, 277, 40));
 
-        btnShowAllAppoints.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        btnShowAllAppoints.setText("Show All in Console");
-        btnShowAllAppoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowAllAppointsActionPerformed(evt);
-            }
-        });
+        txtCpfInfo.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtCpfInfo.setForeground(new java.awt.Color(182, 147, 20));
+        txtCpfInfo.setText("Atualização é feita pelo cpf");
+        getContentPane().add(txtCpfInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(471, 85, 164, -1));
+
+        txtCpfInfo2.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtCpfInfo2.setForeground(new java.awt.Color(182, 147, 20));
+        txtCpfInfo2.setText("Atualização é feita pelo cpf");
+        getContentPane().add(txtCpfInfo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 458, 213, -1));
+
+        msgPatient.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        msgPatient.setForeground(new java.awt.Color(182, 147, 20));
+        msgPatient.setText("Paciente adicionado!");
+        getContentPane().add(msgPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 311, 138, -1));
+
+        msgAppointment.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        msgAppointment.setForeground(new java.awt.Color(182, 147, 20));
+        msgAppointment.setText("Agendamento adicionado!");
+        getContentPane().add(msgAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(583, 576, 150, -1));
+
+        msgRemovePatient.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        msgRemovePatient.setForeground(new java.awt.Color(190, 31, 30));
+        msgRemovePatient.setText("Paciente adicionado!");
+        getContentPane().add(msgRemovePatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 353, 244, -1));
+
+        msgRemoveAppointment.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        msgRemoveAppointment.setForeground(new java.awt.Color(190, 31, 30));
+        msgRemoveAppointment.setText("Paciente adicionado!");
+        getContentPane().add(msgRemoveAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 625, 162, -1));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnShowPatient.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        btnShowPatient.setText("Show All in Console");
+        btnShowPatient.setText("Exibir Pacientes");
         btnShowPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowPatientActionPerformed(evt);
             }
         });
 
-        txtCpfInfo.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        txtCpfInfo.setForeground(new java.awt.Color(182, 147, 20));
-        txtCpfInfo.setText("Atualização é feita pelo cpf");
+        btnShowAllAppoints.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        btnShowAllAppoints.setText("Exibir Agendamentos");
+        btnShowAllAppoints.setMaximumSize(new java.awt.Dimension(186, 28));
+        btnShowAllAppoints.setMinimumSize(new java.awt.Dimension(186, 28));
+        btnShowAllAppoints.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowAllAppointsActionPerformed(evt);
+            }
+        });
 
-        txtCpfInfo2.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        txtCpfInfo2.setForeground(new java.awt.Color(182, 147, 20));
-        txtCpfInfo2.setText("Atualização é feita pelo cpf");
+        btnSecretaryRecord.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        btnSecretaryRecord.setText("Consultas Amanhã");
+        btnSecretaryRecord.setMaximumSize(new java.awt.Dimension(186, 28));
+        btnSecretaryRecord.setMinimumSize(new java.awt.Dimension(186, 28));
+        btnSecretaryRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSecretaryRecordActionPerformed(evt);
+            }
+        });
 
-        msgPatient.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        msgPatient.setForeground(new java.awt.Color(182, 147, 20));
-        msgPatient.setText("Paciente adicionado!");
-
-        msgAppointment.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        msgAppointment.setForeground(new java.awt.Color(182, 147, 20));
-        msgAppointment.setText("Agendamento adicionado!");
-
-        msgRemovePatient.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        msgRemovePatient.setForeground(new java.awt.Color(190, 31, 30));
-        msgRemovePatient.setText("Paciente adicionado!");
-
-        msgRemoveAppointment.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        msgRemoveAppointment.setForeground(new java.awt.Color(190, 31, 30));
-        msgRemoveAppointment.setText("Paciente adicionado!");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(radioBtnIsMale)
-                                .addGap(29, 29, 29)
-                                .addComponent(radioBtnIsFemale)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(radioBtnIsUpdating))
-                                    .addComponent(txtPatientName))
-                                .addGap(43, 43, 43)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtPatientPhoneNumber))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPatientDateBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(radioBtnIsParticular)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioBtnIsNotParticular))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtPatientCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(radioBtnIsNotNormalAppointment)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtAppointmentData, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel16)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtPatientAppointmentCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(radioBtnUpdateAppointment))
-                            .addComponent(txtCpfInfo2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnShowAllAppoints)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel18)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtDoctorAppointmentCpf))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel15)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtHourAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPatientEmail)
-                            .addComponent(txtPatientAdress, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(361, 361, 361))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(29, 29, 29)
-                        .addComponent(radioBtnIsAdding)
-                        .addGap(225, 225, 225)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnShowPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(138, 138, 138))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtCpfInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(radioBtnAddAppointment))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioBtnIsNormalAppointment))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtPatientCPFRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnRemovePatient)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(msgRemovePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel20)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPatientRemoveAppointmentCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRemoveAppointment)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(msgRemoveAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnAddAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(msgAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnAddOrUpdatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(msgPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(75, 75, 75))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(98, 98, 98)
-                                .addComponent(btnGoToDoctorScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(33, 33, 33))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(btnGoToDoctorScreen))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(radioBtnIsAdding)
-                    .addComponent(radioBtnIsUpdating)
-                    .addComponent(btnShowPatient))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(txtPatientCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCpfInfo)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(txtPatientPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(radioBtnIsMale)
-                    .addComponent(radioBtnIsFemale))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(txtPatientEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(txtPatientDateBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel10)
-                    .addComponent(txtPatientAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(radioBtnIsParticular)
-                    .addComponent(radioBtnIsNotParticular))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddOrUpdatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(msgPatient))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel12)
-                    .addComponent(txtPatientCPFRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRemovePatient)
-                    .addComponent(msgRemovePatient))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(radioBtnAddAppointment)
-                    .addComponent(radioBtnUpdateAppointment)
-                    .addComponent(btnShowAllAppoints))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(txtAppointmentData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)
-                        .addComponent(txtCpfInfo2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(txtPatientAppointmentCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18)
-                            .addComponent(txtDoctorAppointmentCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel15)
-                        .addComponent(txtHourAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(radioBtnIsNotNormalAppointment)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel17)
-                        .addComponent(radioBtnIsNormalAppointment)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(msgAppointment))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20)
-                    .addComponent(txtPatientRemoveAppointmentCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRemoveAppointment)
-                    .addComponent(msgRemoveAppointment))
-                .addGap(18, 18, 18))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnSecretaryRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnShowAllAppoints, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnShowPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSecretaryRecord, btnShowAllAppoints, btnShowPatient});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnShowPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnShowAllAppoints, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSecretaryRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(265, Short.MAX_VALUE))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnSecretaryRecord, btnShowAllAppoints, btnShowPatient});
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, 220, 540));
+
+        jLabel21.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel21.setText("BEM VINDO(A) SECRETÁRIO(A)");
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 17, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -721,8 +584,6 @@ public class SecretaryScreen extends javax.swing.JFrame{
 
     private void btnAddAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAppointmentActionPerformed
         Appointment app = new Appointment(this.systemController.getDoctor().getCpf());
-        System.out.println(this.txtAppointmentData.getText());
-        System.out.println(this.txtHourAppointment.getText());
         if(!DateFormat.isDateValid(this.txtAppointmentData.getText()) ||
                 !DateFormat.isHourValid(this.txtHourAppointment.getText())){
                 this.msgAppointment.setText("Data ou Hora inválidos!");
@@ -843,6 +704,10 @@ public class SecretaryScreen extends javax.swing.JFrame{
         this.txtHourAppointment.setText("");
     }//GEN-LAST:event_txtHourAppointmentMouseClicked
 
+    private void btnSecretaryRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSecretaryRecordActionPerformed
+        this.systemController.showTomorrowAppointments();
+    }//GEN-LAST:event_btnSecretaryRecordActionPerformed
+
     public static void setTimeout(Runnable runnable, int delay){
         new Thread(() -> {
             try{
@@ -860,6 +725,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
     private javax.swing.JButton btnGoToDoctorScreen;
     private javax.swing.JButton btnRemoveAppointment;
     private javax.swing.JButton btnRemovePatient;
+    private javax.swing.JButton btnSecretaryRecord;
     private javax.swing.JButton btnShowAllAppoints;
     private javax.swing.JButton btnShowPatient;
     private javax.swing.JLabel jLabel1;
@@ -875,6 +741,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -882,6 +749,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel msgAppointment;
     private javax.swing.JLabel msgPatient;
     private javax.swing.JLabel msgRemoveAppointment;

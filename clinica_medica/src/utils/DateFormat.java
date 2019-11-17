@@ -6,6 +6,8 @@ import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.util.Date;
+import java.util.Calendar;
 
 public class DateFormat {
     public static boolean isDateValid(String strDate) {
@@ -31,5 +33,29 @@ public class DateFormat {
             return false;
         }
         return true;
+    }
+    
+    public static boolean oneDayLeft(String startDate, String endDate){
+        if(!DateFormat.isDateValid(startDate) || !DateFormat.isDateValid(endDate)){
+            return false;
+        }
+        String[] startDatetime = startDate.split("/");
+        String[] endDatetime = endDate.split("/");
+        if(startDatetime[2].equals(endDatetime[2])){
+            if(startDatetime[1].equals(endDatetime[1])){
+                int end = Integer.parseInt(endDatetime[0]);
+                int start = Integer.parseInt(startDatetime[0]);
+                if(end - start == 1){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public static String getCurrentDate(){
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        return format.format(date);
     }
 }

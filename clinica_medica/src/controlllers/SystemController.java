@@ -10,6 +10,7 @@ import models.Secretary;
 import services.Appointment;
 import screens.DoctorScreen;
 import screens.SecretaryScreen;
+import services.Crud;
 import utils.AddictionalPatientData;
 import utils.DateFormat;
 
@@ -24,6 +25,7 @@ public class SystemController {
     public SystemController() {
         this.doctor = new Doctor("Neymar Júnior", "12345678", "(44)99999-9999");
         this.secretary = new Secretary("Neymar Pai", "987654321", "(44)11111-1111");
+        System.out.println(DateFormat.getCurrentDate());
     }
     
     public static void main(String[] args){
@@ -161,5 +163,30 @@ public class SystemController {
             System.out.println();
             System.out.println("LISTA DE AGENDAMENTOS VAZIA!");
         }
+    }
+    
+    private List<Appointment> filterOneDayLeftAppointments(List<Appointment> apps){
+        List<Appointment> filterApps = new ArrayList<>();
+        for(Appointment a: apps){
+            if(DateFormat.oneDayLeft(DateFormat.getCurrentDate(), a.getDate())){
+                filterApps.add(a);
+            }
+        }
+        return filterApps;
+    }
+    
+    public void showTomorrowAppointments(){
+        List<Appointment> apps = this.filterOneDayLeftAppointments(this.appointments);
+        for(Appointment a: apps){
+            Patient p = Crud.getPatient(a.getPatientCpf(), patients);
+            System.out.println("----CONSULTAS DE AMANHÃ-----");
+            System.out.println("Data: " + a.getDate() + " " + a.getHour());
+            System.out.println("Paciente: " + p.getName());
+            System.out.println("CPF: " + a.getPatientCpf());
+            System.out.println("Telefone: " + p.getPhoneNumber());
+            System.out.println("Email: " + p.getEmail());
+            System.out.println("");
+        }
+        
     }
 }
