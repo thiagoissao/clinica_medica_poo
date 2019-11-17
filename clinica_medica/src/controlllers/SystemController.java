@@ -33,6 +33,8 @@ public class SystemController {
         this.appointments.add(new Appointment("18/11/2019", "10:00", "123", "a"));
         this.appointments.add(new Appointment("18/11/2019", "20:00", "123", "b"));
         this.appointments.add(new Appointment("19/11/2019", "10:00", "123", "c"));
+        this.appointments.add(new Appointment("10/11/2019", "10:00", "123", "c"));
+        this.appointments.add(new Appointment("19/10/2019", "10:00", "123", "c"));
     }
     
     public static void main(String[] args){
@@ -184,16 +186,56 @@ public class SystemController {
     
     public void showTomorrowAppointments(){
         List<Appointment> apps = this.filterOneDayLeftAppointments(this.appointments);
-        System.out.println("----CONSULTAS DE AMANHÃ-----");
-        for(Appointment a: apps){
-            Patient p = Crud.getPatient(a.getPatientCpf(), patients);
-            System.out.println("Data: " + a.getDate() + " " + a.getHour());
-            System.out.println("Paciente: " + p.getName());
-            System.out.println("CPF: " + a.getPatientCpf());
-            System.out.println("Telefone: " + p.getPhoneNumber());
-            System.out.println("Email: " + p.getEmail());
-            System.out.println("");
+        if(!apps.isEmpty()){
+            System.out.println("----CONSULTAS DE AMANHÃ-----");
+            for(Appointment a: apps){
+                Patient p = Crud.getPatient(a.getPatientCpf(), patients);
+                System.out.println("Data: " + a.getDate() + " " + a.getHour());
+                System.out.println("Paciente: " + p.getName());
+                System.out.println("CPF: " + a.getPatientCpf());
+                System.out.println("Telefone: " + p.getPhoneNumber());
+                System.out.println("Email: " + p.getEmail());
+                System.out.println("");
+            }
+        }else{
+            System.out.println("NENHUMA CONSULTA PARA AMANHÃ");
         }
-        
+    }
+    
+    public void atestado(){
+        System.out.println("Gerando Relatório de Atestado...");
+    }
+    
+    public void receita(){
+        System.out.println("Gerando Relatório de Receita...");
+    }
+    
+    public void declaracaoAcompanhamento(){
+        System.out.println("Gerando declaração de acompanhamento...");
+    }
+    
+    private List<Appointment> filterAppointmentsInMonth(List<Appointment> apps){
+        List<Appointment> filter = new ArrayList<Appointment>();
+        for(Appointment a: apps){
+            if(DateFormat.isBeforeAndSameMonthYear(DateFormat.getCurrentDate(), a.getDate())){
+                filter.add(a);
+            }
+        }
+        return filter;
+    }
+    
+    public void showClientAttendedInMonth(){
+        List<Appointment> apps = this.filterAppointmentsInMonth(this.appointments);
+        if(!apps.isEmpty()){
+            System.out.println("-----CONSULTAS DO MÊS ATÉ AGORA-----");
+            for(Appointment a: apps){
+                Patient p = Crud.getPatient(a.getPatientCpf(), patients);
+                System.out.println("Data: " + a.getDate() + " " + a.getHour());
+                System.out.println("Paciente: " + p.getName());
+                System.out.println("");
+            }
+        }else{
+            System.out.println("NENHUMA CONSULTA NO MÊS ATÉ AGORA");
+        }
     }
 }
