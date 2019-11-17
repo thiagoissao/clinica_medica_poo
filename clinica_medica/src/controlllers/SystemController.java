@@ -11,6 +11,7 @@ import services.Appointment;
 import screens.DoctorScreen;
 import screens.SecretaryScreen;
 import services.Crud;
+import services.Message;
 import utils.AddictionalPatientData;
 import utils.DateFormat;
 
@@ -26,21 +27,27 @@ public class SystemController {
         this.doctor = new Doctor("Neymar Júnior", "12345678", "(44)99999-9999");
         this.secretary = new Secretary("Neymar Pai", "987654321", "(44)11111-1111");
         
-        this.patients.add(new Patient("a", "a", "a", "a"));
-        this.patients.add(new Patient("b", "b", "b", "b"));
-        this.patients.add(new Patient("c", "c", "c", "c"));
-    
-        this.appointments.add(new Appointment("18/11/2019", "10:00", "123", "a"));
-        this.appointments.add(new Appointment("18/11/2019", "20:00", "123", "b"));
-        this.appointments.add(new Appointment("19/11/2019", "10:00", "123", "c"));
-        this.appointments.add(new Appointment("10/11/2019", "10:00", "123", "c"));
-        this.appointments.add(new Appointment("19/10/2019", "10:00", "123", "c"));
+        //mock
+        this.patients.add(new Patient("Thiago", "(44)999606841", "thiagoyasunaka@hotmail.com", "12345"));
+        this.patients.add(new Patient("Issao", "(44)999999999", "yasunakathiago@gmail.com", "123456"));
+        this.patients.add(new Patient("Yasunaka", "(44)999990000", "ra103069@uem.br", "1234567"));
+        this.appointments.add(new Appointment("18/11/2019", "10:00", "123", "12345"));
+        this.appointments.add(new Appointment("18/11/2019", "20:00", "123", "123456"));
+        this.appointments.add(new Appointment("19/11/2019", "15:00", "123", "1234567"));
+        this.appointments.add(new Appointment("10/11/2019", "12:00", "123", "12345"));
+        this.appointments.add(new Appointment("19/10/2019", "08:00", "123", "12345"));
+        
+        System.out.println("Sistema inicializando...");
+        System.out.println("Enviando lembretes aos clientes sobre as consultas...");
+        Message.sendEmail(this.appointments, this.patients);
+        Message.sendMessages(this.appointments, this.patients);
     }
     
     public static void main(String[] args){
         Calendar c = Calendar.getInstance();
         SecretaryScreen secretaryScreen = new SecretaryScreen();
         secretaryScreen.setVisible(true);
+        
     }
     
     public void goToDoctorScreen() {
