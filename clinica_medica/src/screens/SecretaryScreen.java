@@ -437,8 +437,8 @@ public class SecretaryScreen extends javax.swing.JFrame{
             }
         });
 
-        btnShowAllAppoints.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
-        btnShowAllAppoints.setText("Exibir Agendamentos");
+        btnShowAllAppoints.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        btnShowAllAppoints.setText("<html>Exibir <br>Agendamentos</html>");
         btnShowAllAppoints.setMaximumSize(new java.awt.Dimension(186, 28));
         btnShowAllAppoints.setMinimumSize(new java.awt.Dimension(186, 28));
         btnShowAllAppoints.addActionListener(new java.awt.event.ActionListener() {

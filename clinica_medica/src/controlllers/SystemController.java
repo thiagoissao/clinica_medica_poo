@@ -25,7 +25,14 @@ public class SystemController {
     public SystemController() {
         this.doctor = new Doctor("Neymar Júnior", "12345678", "(44)99999-9999");
         this.secretary = new Secretary("Neymar Pai", "987654321", "(44)11111-1111");
-        System.out.println(DateFormat.getCurrentDate());
+        
+        this.patients.add(new Patient("a", "a", "a", "a"));
+        this.patients.add(new Patient("b", "b", "b", "b"));
+        this.patients.add(new Patient("c", "c", "c", "c"));
+    
+        this.appointments.add(new Appointment("18/11/2019", "10:00", "123", "a"));
+        this.appointments.add(new Appointment("18/11/2019", "20:00", "123", "b"));
+        this.appointments.add(new Appointment("19/11/2019", "10:00", "123", "c"));
     }
     
     public static void main(String[] args){
@@ -177,9 +184,9 @@ public class SystemController {
     
     public void showTomorrowAppointments(){
         List<Appointment> apps = this.filterOneDayLeftAppointments(this.appointments);
+        System.out.println("----CONSULTAS DE AMANHÃ-----");
         for(Appointment a: apps){
             Patient p = Crud.getPatient(a.getPatientCpf(), patients);
-            System.out.println("----CONSULTAS DE AMANHÃ-----");
             System.out.println("Data: " + a.getDate() + " " + a.getHour());
             System.out.println("Paciente: " + p.getName());
             System.out.println("CPF: " + a.getPatientCpf());

@@ -13,6 +13,15 @@ public class Appointment {
         this.doctorCpf = doctorCpf;
     }
 
+    public Appointment(String date, String hour, String doctorCpf, String patientCpf) {
+        this.date = date;
+        this.hour = hour;
+        this.doctorCpf = doctorCpf;
+        this.patientCpf = patientCpf;
+    }
+    
+    
+
     public String getDate() {
         return date;
     }

@@ -75,11 +75,15 @@ public final class DoctorScreen extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnShowAllPatients = new javax.swing.JButton();
+        btnClientesAtendidos = new javax.swing.JButton();
+        btnDeclaracao = new javax.swing.JButton();
+        btnAtestado = new javax.swing.JButton();
+        btnReceita = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1050, 669));
-        setPreferredSize(new java.awt.Dimension(1050, 669));
+        setMinimumSize(new java.awt.Dimension(1050, 650));
+        setPreferredSize(new java.awt.Dimension(1050, 680));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -279,22 +283,68 @@ public final class DoctorScreen extends javax.swing.JFrame {
             }
         });
 
+        btnClientesAtendidos.setText("Clientes Atendidos");
+        btnClientesAtendidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesAtendidosActionPerformed(evt);
+            }
+        });
+
+        btnDeclaracao.setText("<html>Declaração <br>Acompanhamento<html>");
+        btnDeclaracao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeclaracaoActionPerformed(evt);
+            }
+        });
+
+        btnAtestado.setText("Atestado");
+        btnAtestado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtestadoActionPerformed(evt);
+            }
+        });
+
+        btnReceita.setText("Receita");
+        btnReceita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReceitaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnShowAllPatients, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnClientesAtendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeclaracao, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAtestado, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnShowAllPatients, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAtestado, btnClientesAtendidos, btnDeclaracao, btnReceita, btnShowAllPatients});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnShowAllPatients, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(443, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAtestado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnDeclaracao, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnClientesAtendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAtestado, btnClientesAtendidos, btnDeclaracao, btnReceita, btnShowAllPatients});
 
         jLabel16.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         jLabel16.setText("Informações são exibidas no console");
@@ -402,9 +452,9 @@ public final class DoctorScreen extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
@@ -486,16 +536,15 @@ public final class DoctorScreen extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(msgAddictionalData))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(txtPatientCpfClear, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnClearAddictionalPatientData))
-                .addGap(30, 30, 30))
+                .addContainerGap())
         );
 
         pack();
@@ -621,11 +670,31 @@ public final class DoctorScreen extends javax.swing.JFrame {
         this.txtAreaDescription.setText("");
     }//GEN-LAST:event_txtAreaDescriptionMouseClicked
 
+    private void btnClientesAtendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesAtendidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnClientesAtendidosActionPerformed
+
+    private void btnDeclaracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeclaracaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeclaracaoActionPerformed
+
+    private void btnAtestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtestadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtestadoActionPerformed
+
+    private void btnReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceitaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnReceitaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddOrUpdatePatientData;
+    private javax.swing.JButton btnAtestado;
     private javax.swing.JButton btnClearAddictionalPatientData;
+    private javax.swing.JButton btnClientesAtendidos;
+    private javax.swing.JButton btnDeclaracao;
     private javax.swing.JButton btnGoToDoctorScreen;
+    private javax.swing.JButton btnReceita;
     private javax.swing.JButton btnShowAllPatients;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

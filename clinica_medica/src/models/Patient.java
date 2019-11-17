@@ -4,6 +4,15 @@ import java.util.List;
 import utils.Cargo;
 public class Patient {
     
+    public Patient(){}
+
+    public Patient(String name, String phoneNumber, String email, String cpf) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.cpf = cpf;
+    }
+    
     private String name;
     private boolean isMale; // if !isMale then is "Female type"
     private String phoneNumber;
