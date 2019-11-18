@@ -1,3 +1,6 @@
+*netbeans version 11.2
+*openjdk version "11.0.5-ea" 2019-10-15
+
 # clinica_medica_poo
 Primeiro Trabalho de POO - Construção de um sistema para um clínica médica
 
