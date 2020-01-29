@@ -6,6 +6,8 @@ import services.Crud;
 import utils.AddictionalPatientData;
 import utils.PatientMedicalRecord;
 
+
+//Modelo do doutor com as operações que ele pode realizar
 public class Doctor extends PessoaClinica{
     public Doctor(String nome, String cpf, String telefone){
         super(nome, cpf, telefone, Cargo.getDoctorRef());

@@ -2,6 +2,8 @@ package models;
 
 import java.util.List;
 import utils.Cargo;
+
+//Modelo do Patient
 public class Patient {
     
     public Patient(){}

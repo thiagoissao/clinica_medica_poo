@@ -8,6 +8,7 @@ import utils.DateFormat;
 
 public class Message {
     
+    //Recebe a lista de agendamentos e retorna outra lista somente com os agendamentos do dia seguinte
     private static List<Appointment> filterOneDayLeftAppointments(List<Appointment> apps){
         List<Appointment> filterApps = new ArrayList<>();
         for(Appointment a: apps){

@@ -1,5 +1,6 @@
 package models;
 
+//Classe Pai para uma pessoa da clinica
 public class PessoaClinica {
 
     private String nome;

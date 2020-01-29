@@ -5,6 +5,8 @@ import services.Crud;
 import java.util.List;
 import utils.Cargo;
 
+
+//classe da secretária com as operações que ela pode realizar
 public class Secretary extends PessoaClinica{ 
     public Secretary(String nome, String cpf, String telefone){
         super(nome, cpf, telefone, Cargo.getSecretaryRef());
