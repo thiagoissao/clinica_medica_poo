@@ -2,8 +2,6 @@ package screens;
 
 import controlllers.SystemController;
 import utils.AddictionalPatientData;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 public final class DoctorScreen extends javax.swing.JFrame {
     

@@ -370,7 +370,7 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 btnRemoveAppointmentActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRemoveAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 619, -1, -1));
+        getContentPane().add(btnRemoveAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 620, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel19.setText("Remover Agendamento:");
@@ -420,12 +420,12 @@ public class SecretaryScreen extends javax.swing.JFrame{
         msgRemovePatient.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         msgRemovePatient.setForeground(new java.awt.Color(190, 31, 30));
         msgRemovePatient.setText("Paciente adicionado!");
-        getContentPane().add(msgRemovePatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 353, 244, -1));
+        getContentPane().add(msgRemovePatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 244, -1));
 
         msgRemoveAppointment.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         msgRemoveAppointment.setForeground(new java.awt.Color(190, 31, 30));
         msgRemoveAppointment.setText("Paciente adicionado!");
-        getContentPane().add(msgRemoveAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 625, 162, -1));
+        getContentPane().add(msgRemoveAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 623, 250, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -481,12 +481,12 @@ public class SecretaryScreen extends javax.swing.JFrame{
                 .addComponent(btnShowAllAppoints, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSecretaryRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnSecretaryRecord, btnShowAllAppoints, btnShowPatient});
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, 220, 540));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, 220, 480));
 
         jLabel21.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel21.setText("BEM VINDO(A) SECRETÁRIO(A)");

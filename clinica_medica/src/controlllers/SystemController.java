@@ -9,6 +9,7 @@ import models.Patient;
 import models.Secretary;
 import services.Appointment;
 import screens.DoctorScreen;
+import screens.InformationDialog;
 import screens.SecretaryScreen;
 import services.Crud;
 import services.Message;
@@ -211,14 +212,21 @@ public class SystemController {
     
     public void atestado(){
         System.out.println("Gerando Relatório de Atestado...");
+        InformationDialog dialog = new InformationDialog();
+        dialog.show(this.patients, "Relatório de Atestado enviado por e-mail!");
     }
     
     public void receita(){
         System.out.println("Gerando Relatório de Receita...");
+        InformationDialog dialog = new InformationDialog();
+        dialog.show(this.patients, "Relatório de Receita enviado por e-mail!");
     }
     
     public void declaracaoAcompanhamento(){
         System.out.println("Gerando declaração de acompanhamento...");
+        InformationDialog dialog = new InformationDialog();
+        dialog.show(this.patients, "Declaração de Acompanhamento enviado "
+                + "com sucesso! Confira seu email");
     }
     
     private List<Appointment> filterAppointmentsInMonth(List<Appointment> apps){
